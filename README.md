@@ -85,6 +85,8 @@ O download é retomável e validado por tamanho e SHA-256. A extração padrão 
 - Risco em coberturas fixas: `docs/fixed_coverage_risk.md`
 - Plano congelado do teste: `docs/final_test_plan.md`
 - Resultados finais: `docs/final_results.md`
+- Matriz de perguntas e evidências: `docs/research_questions_evidence_matrix.md`
+- Checklist dos capítulos 8–10: `docs/chapters_8_10_replacement_checklist.md`
 - Registro de acesso ao holdout: `docs/test_access_log.md`
 - Diário cronológico: `docs/development_log.md`
 - Decisões metodológicas: `docs/decisions.md`

@@ -122,3 +122,19 @@ e decisão decorrente neste diário ou no `experiment_registry.md`.
    A versão v1 foi preservada para rastreabilidade.
 7. A tabela, as comparações pareadas e a figura de coberturas fixas foram materializadas em
    `figures/fixed_coverage_v1/`; o notebook `07_fixed_coverage_risk.ipynb` foi executado.
+
+## 2026-07-21 — consolidação científica e documental
+
+1. Nenhum experimento foi executado e nenhuma configuração congelada foi alterada. A
+   consolidação leu somente métricas, previsões e relatórios já existentes.
+2. As perguntas do manuscrito foram ligadas às evidências em
+   `research_questions_evidence_matrix.md`, separando resultados descritivos, diferenças
+   estatisticamente sustentadas e interpretação gerencial.
+3. `final_results.md` e `tcc_results_draft.md` foram reorganizados para responder
+   diretamente às perguntas, apresentar coberturas fixas como evidência principal e tratar a
+   falha de transferência do limiar como achado.
+4. As fontes primárias de Joren et al. (2025), Chen et al. (2024), Kamath, Jia e Liang
+   (2020), Qiu, Han e Huang (2026) e Geissler et al. (2026) foram verificadas antes do
+   diálogo com a literatura.
+5. `chapters_8_10_replacement_checklist.md` registrou os elementos que deverão substituir o
+   conteúdo prospectivo do DOCX. O manuscrito não foi modificado.
