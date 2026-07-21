@@ -20,6 +20,8 @@ manuscrito nem mudança no experimento congelado.
   duplicatas e configuração congelada.
 - [ ] Inserir tabela de caracterização: treino 600 (450/150), desenvolvimento 310 (160/150),
   cerca de 50 candidatos e 28.482 Technotes únicos. Fonte: `docs/data_audit.md`.
+- [ ] Citar Castelli et al. (2020) na descrição do TechQA e conferir a entrada completa na
+  bibliografia.
 - [ ] Inserir tabela de recuperação BM25/semântico/RRF em R@1/3/5/10 e MRR. Fonte:
   `figures/final_test_v2/retrieval_metrics.csv`.
 - [ ] Explicar que k=5 e o RRF foram congelados antes do holdout; não narrar essa escolha
@@ -30,13 +32,17 @@ manuscrito nem mudança no experimento congelado.
 - [ ] Abrir o capítulo respondendo diretamente à pergunta principal com ROC-AUC 0,744,
   PR-AUC 0,604, Brier 0,195, ECE-10 0,082 e AURC 0,478.
 - [ ] Inserir como evidência principal a tabela de risco em coberturas fixas da seção 9.2,
-  incluindo casos respondidos, quatro métodos, Δrisco logística−RRF e IC95%.
+  incluindo casos respondidos, quatro métodos e os Δriscos logística−BM25,
+  logística−semântico e logística−RRF com IC95%.
 - [ ] Após a tabela, registrar inclusão fracionária de empates, bootstrap por `query_id`,
   2.000 réplicas pareadas e seed 42.
 - [ ] Separar explicitamente: vantagem descritiva até 40%; ausência de diferença de risco
   sustentada contra RRF; ganho de PR-AUC sustentado contra RRF.
 - [ ] Inserir tabela das políticas congeladas com respostas, encaminhamentos, cobertura e
-  risco; destacar como achado a passagem do risco conservador de ≤10% interno para 35,7%.
+  risco; destacar como achado que o risco conservador de ≤10% interno não foi preservado e
+  atingiu 35,7% no holdout, sem atribuir causalmente a diferença.
+- [ ] Qualificar os 2,3% como diagnóstico retrospectivo do holdout, não novo limiar nem
+  política validada.
 - [ ] Inserir a análise curta da matriz `[[146,59],[35,70]]` e dos 59 falsos positivos.
 - [ ] Inserir a seção 9.4 de diálogo com as cinco fontes primárias verificadas.
 - [ ] Usar as figuras na ordem abaixo e atualizar numeração, título, fonte e chamada no texto:

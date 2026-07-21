@@ -15,7 +15,8 @@ de desenvolvimento, sendo 160 respondíveis no universo dos Technotes candidatos
 desenvolvimento oficial foi reservado como holdout final local; ele não corresponde ao teste
 cego oficial de 490 perguntas. A expressão “não respondível” indica que os anotadores não
 encontraram resposta entre os aproximadamente 50 documentos candidatos, não que a pergunta
-seja universalmente impossível de responder.
+seja universalmente impossível de responder. O dataset e sua finalidade para question
+answering técnico foram apresentados por Castelli et al. (2020).
 
 O arquivo compartilhado por treino e desenvolvimento contém 28.482 Technotes únicos. A
 auditoria encontrou 22 perguntas com texto idêntico entre treino e desenvolvimento e 49
@@ -64,11 +65,21 @@ A evidência principal é o risco em coberturas fixas. Define-se Δrisco como
 | 80% | 248 | 60,1% | 65,7% | 62,5% | 59,7% | +0,3 p.p. | [−2,0; 2,3] |
 | 100% | 310 | 66,1% | 66,1% | 66,1% | 66,1% | 0,0 p.p. | [0,0; 0,0] |
 
-A logística apresentou superioridade descritiva sobre o RRF em 10%, 20% e 40% de
-cobertura. Como todos os IC95% pareados incluíram zero, essa diferença não foi
-estatisticamente sustentada. Em 60% e 80%, o RRF foi descritivamente ligeiramente melhor.
-Empates na fronteira foram tratados por inclusão fracionária, correspondente ao risco
-esperado de aceitar apenas a fração necessária do grupo empatado. O bootstrap usou a
+| Cobertura | Logística−BM25 (IC95%) | Logística−semântico (IC95%) | Logística−RRF (IC95%) |
+|---:|---:|---:|---:|
+| 10% | −32,3 [−58,1; −12,9] p.p. | −19,4 [−38,7; 3,2] p.p. | −13,0 [−28,7; 3,2] p.p. |
+| 20% | −30,6 [−43,5; −16,1] p.p. | −14,5 [−25,8; 0,0] p.p. | −9,8 [−18,5; 2,7] p.p. |
+| 40% | −21,0 [−30,6; −13,7] p.p. | −11,3 [−19,4; −4,0] p.p. | −2,7 [−8,9; 2,3] p.p. |
+| 60% | −10,2 [−16,1; −5,4] p.p. | −7,0 [−11,3; −1,6] p.p. | +0,4 [−2,9; 4,3] p.p. |
+| 80% | −5,6 [−8,9; −2,8] p.p. | −2,4 [−5,6; 0,4] p.p. | +0,3 [−2,0; 2,3] p.p. |
+| 100% | 0,0 [0,0; 0,0] p.p. | 0,0 [0,0; 0,0] p.p. | 0,0 [0,0; 0,0] p.p. |
+
+Em risco fixo, os IC95% sustentaram menor risco da logística contra BM25 em 10%–80% e contra
+o semântico em 40% e 60%. Contra o semântico em 10%, 20% e 80%, houve somente vantagem
+descritiva. Contra RRF, a logística teve menor risco descritivo em 10%, 20% e 40%, mas todos
+os IC95% parciais incluíram zero; em 60% e 80%, o RRF foi descritivamente ligeiramente
+melhor. Empates na fronteira foram tratados por inclusão fracionária, correspondente ao
+risco esperado de aceitar apenas a fração necessária do grupo empatado. O bootstrap usou a
 pergunta (`query_id`) como unidade, 2.000 reamostragens pareadas e seed 42.
 
 Nas métricas globais, a logística apresentou ROC-AUC, PR-AUC e AURC numericamente melhores
@@ -87,10 +98,13 @@ AURC de 0,068 [−0,005; 0,096] permaneceram inconclusivos. Portanto, a hipótes
 | expansiva | 133 | 177 | 42,9% | 46,6% |
 
 O ponto conservador foi escolhido internamente para risco de até 10%, mas alcançou 35,7%
-no holdout. Para manter risco final observado de até 10%, apenas 2,3% do conjunto, cerca de
-sete perguntas, seriam respondidas. Esse resultado demonstra que a política estática não
-transferiu seu nível de risco para a nova distribuição. Cobertura e encaminhamento são
-proxies experimentais; não medem produtividade, custo ou retorno financeiro.
+no holdout. Retrospectivamente, risco observado de até 10% ocorreu nos primeiros 2,3% do
+holdout, cerca de sete perguntas. Essa cobertura é um diagnóstico retrospectivo do holdout;
+não representa um novo limiar selecionado nem uma política validada. O resultado demonstra
+apenas que o limiar interno não
+preservou seu nível de risco no holdout; não identifica causalmente o motivo. A política pode
+ser sensível à distribuição. Cobertura e encaminhamento são proxies experimentais; não
+medem produtividade, custo ou retorno financeiro.
 
 Na política equilibrada, a matriz de confusão foi `[[146,59],[35,70]]`, com 59 falsas
 autorizações e 35 abstenções indevidas. Entre as falsas autorizações, 47 eram perguntas sem
@@ -148,9 +162,9 @@ algorítmica proposta pelo estudo.
 
 ### 10.2 Implicação de governança
 
-O limiar de confiança deve ser tratado como política organizacional dependente da
-distribuição. Antes de uso operacional, thresholds exigem validação local, monitoramento da
-prevalência e da calibração, registro de versões e eventual recalibração. O mecanismo
+O limiar de confiança deve ser tratado como política organizacional potencialmente sensível
+à distribuição. Antes de uso operacional, thresholds exigem validação local, monitoramento
+da prevalência e da calibração, registro de versões e eventual recalibração. O mecanismo
 avaliado não está pronto para autorizar respostas em produção.
 
 ### 10.3 Limitações e continuidade
@@ -162,7 +176,12 @@ contexto, não factualidade ou utilidade da resposta gerada. Estudos futuros dev
 outros domínios, períodos e prevalências, preferencialmente com validação temporal ou
 externa, e só então investigar recalibração e integração com um gerador.
 
-## Referências acrescentadas nesta consolidação
+## Referências citadas nesta consolidação
+
+- CASTELLI, Vittorio et al. The TechQA Dataset. In: Proceedings of the 58th Annual Meeting
+  of the Association for Computational Linguistics. 2020. p. 1269–1278. DOI:
+  10.18653/v1/2020.acl-main.117. Disponível em:
+  https://aclanthology.org/2020.acl-main.117/. Acesso em: 21 jul. 2026.
 
 - CHEN, Lu et al. Controlling Risk of Retrieval-augmented Generation: A Counterfactual
   Prompting Framework. In: Findings of EMNLP 2024. p. 2380–2393. DOI:

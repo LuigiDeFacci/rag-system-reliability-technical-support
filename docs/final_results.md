@@ -33,9 +33,20 @@ como `risco(logística) − risco(RRF)`; valores negativos favorecem a logístic
 | 80% | 248 | 60,1% | 65,7% | 62,5% | 59,7% | +0,3 p.p. | [−2,0; 2,3] |
 | 100% | 310 | 66,1% | 66,1% | 66,1% | 66,1% | 0,0 p.p. | [0,0; 0,0] |
 
-A logística teve menor risco descritivo que o RRF até 40%, mas nenhum IC95% dessas
-diferenças excluiu zero; em 60% e 80%, o RRF foi ligeiramente melhor. Empates na fronteira
-foram tratados por inclusão fracionária. O bootstrap foi pareado por `query_id`, com 2.000
+| Cobertura | Logística−BM25 (IC95%) | Logística−semântico (IC95%) | Logística−RRF (IC95%) |
+|---:|---:|---:|---:|
+| 10% | −32,3 [−58,1; −12,9] p.p. | −19,4 [−38,7; 3,2] p.p. | −13,0 [−28,7; 3,2] p.p. |
+| 20% | −30,6 [−43,5; −16,1] p.p. | −14,5 [−25,8; 0,0] p.p. | −9,8 [−18,5; 2,7] p.p. |
+| 40% | −21,0 [−30,6; −13,7] p.p. | −11,3 [−19,4; −4,0] p.p. | −2,7 [−8,9; 2,3] p.p. |
+| 60% | −10,2 [−16,1; −5,4] p.p. | −7,0 [−11,3; −1,6] p.p. | +0,4 [−2,9; 4,3] p.p. |
+| 80% | −5,6 [−8,9; −2,8] p.p. | −2,4 [−5,6; 0,4] p.p. | +0,3 [−2,0; 2,3] p.p. |
+| 100% | 0,0 [0,0; 0,0] p.p. | 0,0 [0,0; 0,0] p.p. | 0,0 [0,0; 0,0] p.p. |
+
+A logística teve menor risco estatisticamente sustentado contra BM25 em 10%–80% e contra o
+semântico em 40% e 60%. Contra o semântico em 10%, 20% e 80%, a diferença foi apenas
+descritiva. Contra RRF, houve menor risco descritivo até 40%, mas nenhum IC95% parcial
+excluiu zero; em 60% e 80%, o RRF foi ligeiramente melhor. Empates na fronteira foram
+tratados por inclusão fracionária. O bootstrap foi pareado por `query_id`, com 2.000
 reamostragens e seed 42.
 
 ### Como a tolerância ao risco afeta cobertura e encaminhamento?
@@ -49,9 +60,11 @@ reamostragens e seed 42.
 | expansiva | 133 | 177 | 42,9% | 46,6% |
 
 O limiar conservador havia sido escolhido para risco interno ≤10%, mas atingiu 35,7% no
-holdout. Nesse conjunto, risco observado ≤10% corresponderia a cobertura de apenas 2,3%,
-aproximadamente sete respostas. O fracasso de transferência é um achado experimental, não
-apenas uma limitação periférica.
+holdout. Retrospectivamente, risco observado ≤10% ocorreu nos primeiros 2,3% do holdout,
+aproximadamente sete respostas. Essa cobertura é um diagnóstico retrospectivo do holdout;
+não representa um novo limiar selecionado nem uma política validada. O achado é que o
+limiar interno não preservou seu nível de risco; a
+causa não foi identificada, embora a política possa ser sensível à distribuição.
 
 ## Evidências complementares
 

@@ -24,6 +24,25 @@ Risco é a proporção esperada de contextos insuficientes entre os casos autori
 RRF teve risco descritivo 0,4 e 0,3 ponto menor. Em 100%, os métodos aceitam o mesmo
 conjunto.
 
+## Diferenças pareadas por baseline
+
+Os valores abaixo apenas reexpressam o artefato congelado
+`fixed_coverage_risk_reductions.csv` no sentido `risco(logística) − risco(baseline)`.
+Valores negativos favorecem a logística.
+
+| Cobertura | Logística−BM25 (IC95%) | Logística−semântico (IC95%) | Logística−RRF (IC95%) |
+|---:|---:|---:|---:|
+| 10% | −32,3 [−58,1; −12,9] p.p. | −19,4 [−38,7; 3,2] p.p. | −13,0 [−28,7; 3,2] p.p. |
+| 20% | −30,6 [−43,5; −16,1] p.p. | −14,5 [−25,8; 0,0] p.p. | −9,8 [−18,5; 2,7] p.p. |
+| 40% | −21,0 [−30,6; −13,7] p.p. | −11,3 [−19,4; −4,0] p.p. | −2,7 [−8,9; 2,3] p.p. |
+| 60% | −10,2 [−16,1; −5,4] p.p. | −7,0 [−11,3; −1,6] p.p. | +0,4 [−2,9; 4,3] p.p. |
+| 80% | −5,6 [−8,9; −2,8] p.p. | −2,4 [−5,6; 0,4] p.p. | +0,3 [−2,0; 2,3] p.p. |
+| 100% | 0,0 [0,0; 0,0] p.p. | 0,0 [0,0; 0,0] p.p. | 0,0 [0,0; 0,0] p.p. |
+
+Em risco fixo, a diferença favoreceu estatisticamente a logística contra BM25 em todas as
+coberturas parciais. Contra o semântico, o IC95% excluiu zero em 40% e 60%; em 10%, 20% e
+80%, houve apenas vantagem descritiva. Contra RRF, nenhum IC95% parcial excluiu zero.
+
 ## Método
 
 As 310 perguntas do desenvolvimento oficial, usado como holdout final local, foram

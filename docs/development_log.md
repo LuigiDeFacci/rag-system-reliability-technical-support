@@ -116,7 +116,8 @@ e decisão decorrente neste diário ou no `experiment_registry.md`.
    do conjunto cego original de 490 perguntas e a limitar “não respondível” ao universo dos
    candidatos oficiais.
 5. A contribuição foi reenquadrada como evidência da distância entre discriminação,
-   definição de limiar e controle de risco sob mudança de distribuição.
+   definição de limiar e preservação do risco entre seleção e holdout, sem atribuir causa à
+   diferença observada.
 6. Os relatórios visuais foram regenerados em `figures/final_test_v2/` com “holdout final
    local” nos títulos e a classe negativa descrita como ausência de evidência nos candidatos.
    A versão v1 foi preservada para rastreabilidade.
@@ -138,3 +139,10 @@ e decisão decorrente neste diário ou no `experiment_registry.md`.
    diálogo com a literatura.
 5. `chapters_8_10_replacement_checklist.md` registrou os elementos que deverão substituir o
    conteúdo prospectivo do DOCX. O manuscrito não foi modificado.
+6. O artefato congelado `fixed_coverage_risk_reductions.csv` foi auditado e confirmou 18
+   diferenças pareadas: três baselines em seis coberturas, com 2.000 réplicas e seed 42. Os
+   IC95% contra BM25 e semântico foram apenas expostos nos documentos, sem novo cálculo.
+7. A redação passou a registrar que o limiar interno não preservou o risco no holdout, sem
+   atribuir causa à diferença. Os 2,3% foram qualificados como diagnóstico retrospectivo.
+8. Castelli et al. (2020) foi incluído na seção 8 do texto-base; a entrada completa já
+   existente no DOCX foi confirmada por inspeção somente leitura.
