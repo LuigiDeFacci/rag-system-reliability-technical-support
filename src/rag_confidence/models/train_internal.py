@@ -214,6 +214,7 @@ def main() -> None:
             baselines[baseline] = {
                 "signal": column,
                 "selection_best_f1": best_f1_threshold(y_selection, scores),
+                "selective": selective_summary(y_selection, scores),
             }
         selected_calibrator = min(
             probabilities,
