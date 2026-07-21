@@ -6,6 +6,9 @@
 sem refit, recalibração ou alteração de limiar; gate fechado após a execução. Esse conjunto
 não é o teste cego original de 490 perguntas do TechQA.
 
+**Artefatos:** `figures/final_test_v2/` para os resultados congelados e
+`figures/fixed_coverage_v1/` para a análise pós-hoc de coberturas comparáveis.
+
 ## Recuperação
 
 | Método | MRR de chunk | Context R@1 | R@3 | R@5 | R@10 |

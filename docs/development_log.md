@@ -117,3 +117,8 @@ e decisão decorrente neste diário ou no `experiment_registry.md`.
    candidatos oficiais.
 5. A contribuição foi reenquadrada como evidência da distância entre discriminação,
    definição de limiar e controle de risco sob mudança de distribuição.
+6. Os relatórios visuais foram regenerados em `figures/final_test_v2/` com “holdout final
+   local” nos títulos e a classe negativa descrita como ausência de evidência nos candidatos.
+   A versão v1 foi preservada para rastreabilidade.
+7. A tabela, as comparações pareadas e a figura de coberturas fixas foram materializadas em
+   `figures/fixed_coverage_v1/`; o notebook `07_fixed_coverage_risk.ipynb` foi executado.

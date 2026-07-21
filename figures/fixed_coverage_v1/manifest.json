@@ -1,0 +1,14 @@
+{
+  "created_at_utc": "2026-07-21T12:24:22.803566+00:00",
+  "git_commit": "73f3791705dd24c8c1f0fd4ede5011df8f1bbf3b",
+  "source_run_id": "20260721-122015_fixed-coverage_430de878",
+  "source_manifest_sha256": "8fd3d6b6095a47aafb3aab4ea8556a7de74f76f3910f26792e86d735e19a1f66",
+  "scope": "posthoc_reporting_from_frozen_predictions",
+  "gate_remained_locked": true,
+  "artifacts": {
+    "fixed_coverage_risk.csv": "195e1069c8b363993d005edb624c7894774a41d8df19b2ad229f34e84ee1e1f8",
+    "fixed_coverage_risk_reductions.csv": "32b0b9ddbecd79316d6aebf26f8888703f6fc8d42efc8e20e7de7da9aa9348b5",
+    "fixed_coverage_risk.png": "7f08c21be096fc0f2c6b0d841473fb27ecbaffb92ce8da4fa030c71696224b69",
+    "fixed_coverage_risk.svg": "a455dac1102853cdb24c6ae56c183b1a4775a6ceecfdb0d1d6753562d70e43a1"
+  }
+}
