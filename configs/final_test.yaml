@@ -1,11 +1,11 @@
-status: locked
-allow_test: false
+status: authorized_once
+allow_test: true
 requirements:
-  protocol_frozen: false
+  protocol_frozen: true
   data_audit_complete: true
-  feature_set_frozen: false
-  model_frozen: false
-  calibrator_frozen: false
-  thresholds_frozen: false
-  config_hash: null
-  git_commit: null
+  feature_set_frozen: true
+  model_frozen: true
+  calibrator_frozen: true
+  thresholds_frozen: true
+  config_hash: 68bd89db1662af32e17b6e5bd635ba485e1cd8816e5b392ffe29defe316b0508
+  git_commit: 0d76d055dedf531a7c64a5948ed4d946766ffd76

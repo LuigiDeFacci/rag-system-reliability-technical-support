@@ -2,15 +2,21 @@ import re
 import unittest
 from pathlib import Path
 
+import yaml
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class RepositoryContractTest(unittest.TestCase):
-    def test_final_test_gate_starts_closed(self) -> None:
-        config = (ROOT / "configs" / "final_test.yaml").read_text(encoding="utf-8")
-        self.assertRegex(config, re.compile(r"^allow_test:\s*false\s*$", re.MULTILINE))
-        self.assertRegex(config, re.compile(r"^\s*protocol_frozen:\s*false\s*$", re.MULTILINE))
+    def test_final_test_gate_has_consistent_state(self) -> None:
+        text = (ROOT / "configs" / "final_test.yaml").read_text(encoding="utf-8")
+        config = yaml.safe_load(text)
+        self.assertRegex(text, re.compile(r"^\s*protocol_frozen:\s*true\s*$", re.MULTILINE))
+        self.assertIn(config["status"], {"authorized_once", "completed_locked"})
+        self.assertEqual(config["allow_test"], config["status"] == "authorized_once")
+        self.assertEqual(64, len(config["requirements"]["config_hash"]))
+        self.assertEqual(40, len(config["requirements"]["git_commit"]))
 
     def test_required_research_documents_exist(self) -> None:
         required = [
