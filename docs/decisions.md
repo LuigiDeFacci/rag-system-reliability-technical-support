@@ -28,6 +28,9 @@ Decisões são imutáveis por identificador. Alterações criam uma nova entrada
 | D022 | aceita | Usar exclusivamente o split interno `selection` para escolher k e thresholds. | Corrige a nomenclatura antiga `validation` e mantém `calibration` separado do ajuste e da seleção. |
 | D023 | aceita | Fixar `core_v1` com 22 features interpretáveis antes de avaliar o classificador. | Mantém scores normalizados, margens, dispersão, concordância e sinais observáveis da pergunta; campos gold e tipo de cenário ficam excluídos. |
 | D024 | aceita | Treinar uma regressão logística separada para cada k, com `C=1` e sem busca de hiperparâmetros. | Evita que o modelo aprenda k como atalho e respeita a ordem de complexidade definida no protocolo. |
+| D025 | aceita | Selecionar k=5 para as verificações internas restantes. | Em `selection`, apresentou a maior PR-AUC (0,793) e F1 balanceado (0,800); k=10 dobrou o contexto e degradou ROC-AUC e Brier. |
+| D026 | aceita | Manter a probabilidade bruta da regressão em k=5. | Brier 0,148, menor que Platt (0,162) e isotônica (0,154) em `selection`; calibração adicional não ajudou nesta amostra. |
+| D027 | aceita | Fixar políticas internas por risco ≤10%, F1 máximo e risco ≤30%. | Produziu pontos conservador, balanceado e expansivo com coberturas crescentes, sem usar limiares intuitivos. |
 
 ## Ambiguidades abertas
 

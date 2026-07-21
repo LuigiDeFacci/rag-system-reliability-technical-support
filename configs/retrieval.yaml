@@ -31,4 +31,4 @@ hybrid:
   rrf_k: 60
 evaluation:
   candidate_k: [1, 3, 5, 10]
-  primary_k: null
+  primary_k: 5
