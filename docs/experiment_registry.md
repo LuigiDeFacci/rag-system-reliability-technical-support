@@ -4,6 +4,17 @@ A primeira execução interna foi realizada. Nenhum teste final foi aberto.
 
 ## Execuções
 
+### Retrieval por chunks — commit `9d88d73`
+
+| Run | Método | Estado | Resultado em `selection` |
+|---|---|---|---|
+| `20260721-015143_bm25-chunk_71a60532` | BM25, `k1=1,2`, `b=0,75` | validado | contexto R@1 0,411; R@10 0,578; MRR de chunk 0,457 |
+| `20260721-015232_semantic-chunk_2a14e360` | BGE v1.5 fixado | validado | contexto R@1 0,333; R@10 0,644; MRR de chunk 0,447 |
+| `20260721-015243_hybrid-rrf_d4583ffc` | RRF, constante 60 | validado | contexto R@1 0,411; R@10 0,622; MRR de chunk 0,475 |
+
+Cada run contém 600 perguntas internas, hashes válidos, scores finitos e rankings sem campos
+gold. `final_test_used=false` nos três manifestos.
+
 ### `embedding_benchmark_cpu`
 
 | Campo | Valor |

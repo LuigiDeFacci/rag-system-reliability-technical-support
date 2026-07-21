@@ -30,7 +30,10 @@
 6. O benchmark CPU atingiu 4,77 chunks/s. Foi baixada a wheel oficial PyTorch CUDA 12.8 de
    2,75 GB; a GTX 1650 foi reconhecida e o benchmark subiu para 43,57 chunks/s.
 7. Foram implementados ranking semântico exato, BM25 no mesmo corpus de chunks e fusão RRF.
-   A codificação completa dos chunks foi iniciada; nenhuma avaliação do teste final foi aberta.
+   A codificação completa terminou em 38min12s e passou nas verificações de norma, finitude,
+   alinhamento e hashes.
+8. Após o commit local `9d88d73`, BM25, semântico e RRF foram executados nas 600 perguntas
+   internas. Os três runs passaram na auditoria de artefatos; nenhum acessou o teste final.
 
 Cada resultado científico posterior deve acrescentar `run_id`, configuração, hashes, métricas
 e decisão decorrente neste diário ou no `experiment_registry.md`.

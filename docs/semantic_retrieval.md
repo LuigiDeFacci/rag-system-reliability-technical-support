@@ -34,5 +34,9 @@ Windows, sem desabilitar validação TLS. O benchmark CPU codificou 256 chunks e
 com batch 32, processou a mesma amostra em 5,88 s (43,57 chunks/s), reduzindo a projeção
 para aproximadamente 35 minutos.
 
+A execução completa codificou 90.284 chunks em 2.292,40 s (38min12s), com média de
+39,38 chunks/s. A matriz `float32` tem forma `(90284, 384)`, todos os valores são finitos,
+as normas variam de 0,99999988 a 1,00000012 e os hashes conferem com o manifesto.
+
 Artefatos locais ficam em `data/interim/` e não são versionados. Manifestos registram
 hashes do corpus, revisão do modelo, versões, dispositivo, batch size e desempenho.

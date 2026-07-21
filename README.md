@@ -4,7 +4,7 @@ Repositório de pesquisa do TCC sobre decisão seletiva em sistemas RAG para sup
 
 ## Estado atual
 
-O projeto está na fase de implementação dos retrievers. O TechQA foi auditado e preparado, o baseline BM25 documental foi executado apenas nos splits internos e a segmentação semântica v1 foi gerada. O teste final permanece bloqueado.
+O TechQA foi auditado e preparado. BM25, recuperação semântica e RRF sobre a segmentação v1 foram executados apenas nos splits internos e estão documentados como resultados preliminares. O teste final permanece bloqueado.
 
 ## Estrutura
 
@@ -64,6 +64,7 @@ O download é retomável e validado por tamanho e SHA-256. A extração padrão 
 - Preparação canônica: `docs/data_preparation.md`
 - Baseline lexical: `docs/bm25_baseline.md`
 - Recuperação semântica: `docs/semantic_retrieval.md`
+- Resultados internos de retrieval: `docs/retrieval_results_internal.md`
 - Registro de acesso ao holdout: `docs/test_access_log.md`
 - Diário cronológico: `docs/development_log.md`
 - Decisões metodológicas: `docs/decisions.md`

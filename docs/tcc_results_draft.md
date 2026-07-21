@@ -25,3 +25,12 @@ A auditoria identificou 22 textos de pergunta idênticos entre treino e desenvol
 ## Resultado preliminar do baseline lexical
 
 O BM25 documental foi executado somente nas subdivisões internas do treino. Na seleção, obteve MRR de 0,553, Recall@1 de 0,500 e Recall@10 de 0,656 entre as 90 perguntas respondíveis. O run `20260721-002321_bm25-doc_5c311f59` não acessou o desenvolvimento oficial. Esses números constituem referência preliminar e não permitem aceitar ou rejeitar a hipótese do estudo.
+
+## Comparação preliminar em nível de chunk
+
+Com a segmentação v1 comum, o recall de contexto na seleção interna foi, respectivamente em
+@1/@3/@5/@10: BM25 0,411/0,467/0,478/0,578; semântico
+0,333/0,522/0,600/0,644; RRF 0,411/0,500/0,522/0,622. O RRF apresentou o maior MRR do
+primeiro chunk que contém integralmente o span (0,475), mas o semântico apresentou maior
+recall de contexto em @3, @5 e @10. Portanto, esta etapa indica complementaridade, sem
+demonstrar superioridade uniforme da fusão. O teste final permanece fechado.
