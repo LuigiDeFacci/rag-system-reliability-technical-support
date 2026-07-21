@@ -4,7 +4,10 @@ Repositório de pesquisa do TCC sobre decisão seletiva em sistemas RAG para sup
 
 ## Estado atual
 
-O TechQA foi auditado e preparado. BM25, recuperação semântica e RRF sobre a segmentação v1 foram executados apenas nos splits internos e estão documentados como resultados preliminares. O teste final permanece bloqueado.
+O TechQA foi auditado e preparado. BM25, recuperação semântica, RRF, regressão logística,
+calibração e robustez foram executados apenas nos splits internos e estão documentados como
+resultados preliminares. O próximo passo é auditar negativos difíceis; o teste final permanece
+bloqueado.
 
 ## Estrutura
 
@@ -49,6 +52,11 @@ $env:PYTHONPATH = (Resolve-Path .\src).Path
 .\.venv\Scripts\python.exe -m rag_confidence.data.prepare
 .\.venv\Scripts\python.exe -m rag_confidence.retrieval.run_bm25
 .\.venv\Scripts\python.exe -m rag_confidence.retrieval.build_chunks
+.\.venv\Scripts\python.exe -m rag_confidence.scenarios.build_natural --help
+.\.venv\Scripts\python.exe -m rag_confidence.features.build --help
+.\.venv\Scripts\python.exe -m rag_confidence.models.train_internal --help
+.\.venv\Scripts\python.exe -m rag_confidence.evaluation.run_robustness --help
+.\.venv\Scripts\python.exe -m rag_confidence.reporting.generate_internal_report --help
 .\.venv\Scripts\python.exe -m pytest
 .\.venv\Scripts\python.exe -m ruff check src tests
 ```
@@ -65,6 +73,7 @@ O download é retomável e validado por tamanho e SHA-256. A extração padrão 
 - Baseline lexical: `docs/bm25_baseline.md`
 - Recuperação semântica: `docs/semantic_retrieval.md`
 - Resultados internos de retrieval: `docs/retrieval_results_internal.md`
+- Confiança e robustez internas: `docs/confidence_results_internal.md`
 - Registro de acesso ao holdout: `docs/test_access_log.md`
 - Diário cronológico: `docs/development_log.md`
 - Decisões metodológicas: `docs/decisions.md`

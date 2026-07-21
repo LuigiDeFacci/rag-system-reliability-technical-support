@@ -33,6 +33,21 @@ Cada contexto derivado deverá registrar `query_id`, split, configuração de re
 contêm gold ou rótulos; esses campos aparecem somente em `evaluation.parquet`, impedindo que
 a extração de features leia informação indisponível em produção.
 
-## Variáveis previstas
+## Dataset de features `features_natural_v1`
 
-Pontuações e estatísticas dos retrievers, margens, dispersão, sobreposição top-k, concordância de ranking, comprimento da pergunta e padrões textuais observáveis serão calculados somente a partir da consulta e da recuperação disponível em inferência.
+O artefato possui 45 variáveis calculadas exclusivamente da consulta e dos rankings. O
+`core_v1` fixa 22 delas para o modelo principal:
+
+| Grupo | Exemplos | Observação |
+|---|---|---|
+| lexical | `bm25_top1_zscore`, média, desvio e margem | z-scores usam a distribuição dos candidatos da própria pergunta |
+| semântico | `semantic_top1_zscore`, média, desvio e margem | similaridade derivada do modelo BGE fixado |
+| híbrido | top-1, média, desvio e margem RRF | scores de rank, sem soma de escalas incompatíveis |
+| concordância | Jaccard, acordo top-1 e correlação de ranks | compara chunks e documentos retornados |
+| consulta | tokens técnicos e padrões de código/versão | observáveis antes da recuperação |
+| contexto | número de documentos distintos | calculado no top-k híbrido |
+
+`features.parquet` contém identificadores e features; `labels.parquet` mantém
+`evidence_sufficient` e `scenario_type` separados. Gold, respondibilidade, documento
+relevante, split e tipo de cenário não entram na matriz do modelo. O esquema completo e os
+grupos estão no `schema.json` do artefato local.

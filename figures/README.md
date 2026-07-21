@@ -1,4 +1,5 @@
 # Figuras
 
-Destino das figuras finais selecionadas para o TCC. Cada arquivo deve registrar no nome ou metadados o `run_id` de origem. Gráficos exploratórios permanecem dentro do diretório do run.
-
+Destino das figuras selecionadas para o TCC. Cada conjunto deve possuir manifesto com os
+`run_id`, hashes e indicação de uso do teste final. `internal_selection_v1/` contém apenas
+visualizações provisórias da seleção interna e não deve ser apresentado como resultado final.

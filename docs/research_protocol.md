@@ -1,6 +1,6 @@
 # Protocolo de pesquisa
 
-**Versão:** 0.2 — provisória após auditoria inicial  
+**Versão:** 0.3 — provisória após avaliação interna  
 **Data:** 20 de julho de 2026  
 **Estado:** não congelado; proibida a avaliação final em teste.
 
@@ -53,11 +53,17 @@ Serão comparadas probabilidades brutas, Platt Scaling e regressão isotônica. 
 ## Métricas e inferência
 
 - Classificação: Precision, Recall, F1, ROC-AUC, PR-AUC e matriz de confusão.
-- Calibração: Brier Score, ECE com bins documentados e diagrama de confiabilidade.
+- Calibração: Brier Score, ECE com dez bins de largura igual em `[0,1]` e diagrama de
+  confiabilidade. O ECE é a média ponderada, pelo número de casos em cada bin, do valor
+  absoluto entre confiança média e frequência positiva.
 - Decisão seletiva: cobertura, risco entre casos aceitos, curva risco-cobertura, AURC, cobertura em riscos fixos e risco em coberturas fixas.
 - Recuperação: Recall@k, MRR e, quando aplicável, nDCG@k.
 
 Intervalos de confiança usarão bootstrap agrupado por `query_id`. Comparações serão pareadas pelas mesmas perguntas. Pontos conservador, equilibrado e expansivo serão definidos na validação por critérios registrados, não por limiares intuitivos.
+
+A AURC implementada é discreta: ordenam-se os exemplos por confiança decrescente, calcula-se
+o risco acumulado em cada nível de cobertura `i/n`, e toma-se a média desses riscos. O mesmo
+cálculo e os mesmos exemplos serão usados em comparações pareadas.
 
 ## Congelamento e teste
 

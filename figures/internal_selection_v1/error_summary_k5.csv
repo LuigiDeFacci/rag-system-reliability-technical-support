@@ -1,0 +1,7 @@
+scenario_type,error_type,rows
+native_unanswerable,correct,28
+native_unanswerable,false_positive,2
+natural_retrieval_miss,correct,35
+natural_retrieval_miss,false_positive,8
+natural_sufficient,correct,38
+natural_sufficient,false_negative,9

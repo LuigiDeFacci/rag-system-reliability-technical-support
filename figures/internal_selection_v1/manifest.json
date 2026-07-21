@@ -1,0 +1,24 @@
+{
+  "created_at_utc": "2026-07-21T02:18:52.870856+00:00",
+  "git_commit": "04603897fb46f13baa1ebdaf0fccb230155c6c7c",
+  "scope": "internal_selection_only",
+  "context_k": 5,
+  "balanced_threshold": 0.42909763129981116,
+  "confidence_run_id": "20260721-021033_confidence-logreg_27fc4ef8",
+  "robustness_run_id": "20260721-021427_robustness-k5_1dacdb1b",
+  "feature_version": "features_natural_v1",
+  "final_test_used": false,
+  "artifacts": {
+    "reliability_k5.png": "e516dd80dabbdd6971f394aaeb38a7cbb2c930b29424e998479700038c8e7470",
+    "reliability_k5.svg": "8547b25a15f8bf265df95d2fcc907493c0bedc1d1bb096196ab2fbc35ae96f14",
+    "risk_coverage_k5.png": "bdc3a1e6409c42fd70d8edd4b7b645cb8224bb676b12a51212ab2c6aa15207ef",
+    "risk_coverage_k5.svg": "b6653e40f4492b041687b565efa43d405f42ef9d82fd87c6a1b63214d4bfc588",
+    "feature_ablation_k5.png": "27563220bedffd4e4752f8cfd26133485cdcd07ef7bbf94ac1b7893f0a3178ee",
+    "feature_ablation_k5.svg": "bd60d83bde905e5bed24843b70c139285ed0966ca8295933efad0ec6ab97520d",
+    "coefficients_k5.png": "4fbdabcbb7ce763d792b2a977363cfc95e0bdf2eec132489f990651e5b35b7cc",
+    "coefficients_k5.svg": "7bdba08b169ffc7d2761cc5ad3d5afd0da51afe48fed7bed47881ffe0d02eaf8",
+    "error_analysis_k5.csv": "563fe49fd990f0c96bd2dda3b90f924a20c29ac159224819960408d492fbdfac",
+    "error_summary_k5.csv": "d07c3e4d2e1125c2dd96af4bfd5176d12a1596433413320bbaef169789ad5d7d",
+    "ablation_k5.csv": "dc704e2ebd27fd7eda8cd6af6323e08f275911957d20dd54ea898f5ed408c1df"
+  }
+}

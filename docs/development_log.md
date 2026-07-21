@@ -37,3 +37,19 @@
 
 Cada resultado científico posterior deve acrescentar `run_id`, configuração, hashes, métricas
 e decisão decorrente neste diário ou no `experiment_registry.md`.
+
+## 2026-07-20 — cenários, features e confiança
+
+1. Foram materializados 2.400 contextos naturais, cobrindo as 600 perguntas internas e
+   k em 1/3/5/10. O rótulo foi derivado do span no contexto, sem usar scores.
+2. A extração produziu 45 features e separou fisicamente os rótulos. O `core_v1`, com 22
+   features, foi congelado antes da avaliação dos modelos.
+3. Regressões logísticas independentes por k foram ajustadas em `fit`; Platt e isotônica
+   foram ajustados em `calibration`; todas as escolhas ocorreram em `selection`.
+4. k=5 e a probabilidade bruta foram escolhidos internamente. Os três pontos operacionais
+   foram derivados de risco ou F1 observados, e não de valores intuitivos.
+5. Um bootstrap pareado agrupado por pergunta, com 2.000 réplicas, comparou o modelo aos
+   sinais top-1. Cinco grupos de features foram avaliados por ablação.
+6. Foram gerados quatro gráficos, tabelas de erros com hashes e o notebook
+   `03_confidence_analysis.ipynb`. O notebook foi executado integralmente como verificação.
+7. O teste final permaneceu bloqueado durante todas essas etapas.

@@ -15,6 +15,21 @@ A primeira execução interna foi realizada. Nenhum teste final foi aberto.
 Cada run contém 600 perguntas internas, hashes válidos, scores finitos e rankings sem campos
 gold. `final_test_used=false` nos três manifestos.
 
+### Cenários e confiança — commits `89cc536` a `0460389`
+
+| Run/artefato | Estado | Finalidade e resultado |
+|---|---|---|
+| `natural_scenarios_v1` | validado | 2.400 contextos naturais; 600 perguntas × k em 1/3/5/10; teste não usado |
+| `features_natural_v1` | validado | 45 features disponíveis em produção; rótulos e metadados de avaliação separados |
+| `20260721-020539_confidence-logreg_715c4e06` | substituído | primeira execução; comparação seletiva contra baselines ainda incompleta |
+| `20260721-020801_confidence-logreg_715c4e06` | substituído | comparação completa; critério expansivo não garantia cobertura maior que o equilibrado |
+| `20260721-021033_confidence-logreg_27fc4ef8` | selecionado internamente | k=5, logística bruta: ROC-AUC 0,864; PR-AUC 0,793; Brier 0,148; AURC 0,348 |
+| `20260721-021427_robustness-k5_1dacdb1b` | validado | bootstrap agrupado pareado com 2.000 réplicas e cinco ablações |
+
+Os dois runs substituídos não foram apagados localmente. O run selecionado contém modelos,
+predições, coeficientes, bins de confiabilidade, configuração e hashes. Todos declaram
+`final_test_used=false`.
+
 ### `embedding_benchmark_cpu`
 
 | Campo | Valor |
