@@ -65,8 +65,12 @@ def classification_metrics(
     values = np.asarray(scores, dtype=np.float64)
     predicted = values >= threshold
     matrix = confusion_matrix(y, predicted, labels=[0, 1])
+    coverage = float(predicted.mean())
+    selective_risk = 0.0 if not predicted.any() else float((1 - y[predicted]).mean())
     return {
         "threshold": float(threshold),
+        "coverage": coverage,
+        "selective_risk": selective_risk,
         "precision": float(precision_score(y, predicted, zero_division=0)),
         "recall": float(recall_score(y, predicted, zero_division=0)),
         "f1": float(f1_score(y, predicted, zero_division=0)),

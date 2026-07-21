@@ -101,7 +101,7 @@ def main() -> None:
         "policy_criteria": {
             "conservative": "maximum coverage with empirical risk <= 0.10",
             "balanced": "maximum F1",
-            "expansive": "maximum coverage with empirical risk <= 0.20",
+            "expansive": "maximum coverage with empirical risk <= 0.30",
         },
     }
     config_hash = hashlib.sha256(json.dumps(config, sort_keys=True).encode("utf-8")).hexdigest()
@@ -178,7 +178,7 @@ def main() -> None:
                     y_selection, probability, 0.10
                 ),
                 "balanced": best_f1_threshold(y_selection, probability),
-                "expansive": threshold_for_maximum_coverage_at_risk(y_selection, probability, 0.20),
+                "expansive": threshold_for_maximum_coverage_at_risk(y_selection, probability, 0.30),
             }
             method_metrics[method] = {
                 "classification_at_0_5": classification_metrics(y_selection, probability, 0.5),
