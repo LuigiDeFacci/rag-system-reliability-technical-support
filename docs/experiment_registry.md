@@ -29,6 +29,7 @@ gold. `final_test_used=false` nos três manifestos.
 | `20260721-023120_hard-stress-k5_4e69b1bc` | substituído | primeira avaliação de estresse; ainda sem intervalos de confiança |
 | `20260721-023156_hard-stress-k5_594f6518` | substituído | métricas completas, mas executado antes do commit que formalizou a implementação |
 | `20260721-023427_hard-stress-k5_594f6518` | validado | commit `6d4a298`; falsa autorização equilibrada 25,6% (IC95% 16,7%–34,4%) em 90 negativos híbridos |
+| `20260721-023732_prevalence-k5_a3a584f3` | validado | reponderação interna em prevalências 20/40/60/80%; nenhum refit ou recalibração |
 
 Os dois runs substituídos não foram apagados localmente. O run selecionado contém modelos,
 predições, coeficientes, bins de confiabilidade, configuração e hashes. Todos declaram

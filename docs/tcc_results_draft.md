@@ -69,3 +69,11 @@ difíceis (IC95% 16,7%–34,4%). As políticas conservadora e expansiva autoriza
 31,1%, respectivamente. Como o conjunto foi artificialmente construído com 100% de
 negativos, esses valores medem falsa autorização sob estresse e não representam calibração,
 prevalência real ou risco de produção.
+
+## Sensibilidade à prevalência
+
+Ao reponderar a seleção interna para prevalências positivas de 20%, 40%, 60% e 80%, sem
+reajustar o modelo, o ECE-10 foi 0,194, 0,097, 0,132 e 0,237. O risco do ponto equilibrado
+foi 40,4%, 20,3%, 10,1% e 4,1%, respectivamente. Na prevalência de 20%, o IC95% do risco
+foi 23,9%–52,5%. A variação confirma que a calibração e a política são condicionais à
+distribuição avaliada e não devem ser interpretadas como probabilidades universais.

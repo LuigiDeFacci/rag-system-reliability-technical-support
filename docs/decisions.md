@@ -37,6 +37,7 @@ Decisões são imutáveis por identificador. Alterações criam uma nova entrada
 | D031 | aceita | Construir o teste de estresse de negativos difíceis a partir dos erros e rankings, separado da análise natural. | Oito dos dez falsos positivos equilibrados eram misses naturais com candidatos altamente plausíveis. |
 | D032 | aceita | Definir conflito técnico forte apenas para CVEs incompatíveis no mesmo produto; manter outras detecções como candidatas. | A amostra exploratória revelou ruído de timestamps, IDs de suporte e versões incidentais. |
 | D033 | aceita | Avaliar remoção artificial do gold somente como falsa autorização em prevalência zero. | ROC-AUC, PR-AUC e probabilidade calibrada não têm interpretação operacional nesse conjunto totalmente negativo. |
+| D034 | aceita | Reportar sensibilidade por reponderação em prevalências de 20%, 40%, 60% e 80%, sem recalibrar. | Torna explícita a dependência de Brier, ECE e risco em relação à mistura das classes. |
 
 ## Ambiguidades abertas
 

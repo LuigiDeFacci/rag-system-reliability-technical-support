@@ -68,3 +68,14 @@ e decisão decorrente neste diário ou no `experiment_registry.md`.
    bootstraps agrupados por pergunta.
 5. A falsa autorização no ponto equilibrado foi 25,6% (IC95% 16,7%–34,4%). O resultado foi
    documentado como estresse de prevalência zero, não como calibração ou risco operacional.
+
+## 2026-07-20 — sensibilidade à prevalência
+
+1. A seleção natural foi reponderada para prevalências positivas de 20%, 40%, 60% e 80%,
+   mantendo scores, modelo, calibrador e limiares congelados.
+2. Brier, ECE-10, cobertura e risco foram recalculados com pesos de classe. Foram usadas
+   2.000 reamostragens por pergunta estratificadas pelo rótulo.
+3. O risco equilibrado variou de 40,4% na prevalência de 20% para 4,1% na prevalência de
+   80%, evidenciando que a política depende da mistura avaliada.
+4. Nenhuma prevalência-alvo foi escolhida como operacional; a análise permanece uma
+   sensibilidade interna e o teste final continua fechado.
