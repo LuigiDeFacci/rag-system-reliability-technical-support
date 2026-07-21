@@ -31,6 +31,18 @@ gold. `final_test_used=false` nos três manifestos.
 | `20260721-023427_hard-stress-k5_594f6518` | validado | commit `6d4a298`; falsa autorização equilibrada 25,6% (IC95% 16,7%–34,4%) em 90 negativos híbridos |
 | `20260721-023732_prevalence-k5_a3a584f3` | validado | reponderação interna em prevalências 20/40/60/80%; nenhum refit ou recalibração |
 
+### Campanha final congelada — especificação `68bd89db`
+
+| Run | Método | Resultado principal |
+|---|---|---|
+| `20260721-024512_bm25-chunk_7ee3b20f` | BM25 final | contexto R@5 0,625; MRR 0,470 |
+| `20260721-024558_semantic-chunk_94a0111c` | BGE final | contexto R@5 0,631; MRR 0,496 |
+| `20260721-024610_hybrid-rrf_24707106` | RRF final | contexto R@5 0,656; MRR 0,531 |
+| `20260721-024728_final-test-k5_68bd89db` | confiança final | ROC-AUC 0,744; PR-AUC 0,604; Brier 0,195; AURC 0,478 |
+
+Os quatro runs declaram `final_test_used=true`. O avaliador declara
+`no_refit_or_recalibration=true`; o gate foi fechado após a campanha.
+
 Os dois runs substituídos não foram apagados localmente. O run selecionado contém modelos,
 predições, coeficientes, bins de confiabilidade, configuração e hashes. Todos declaram
 `final_test_used=false`.

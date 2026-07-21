@@ -1,0 +1,33 @@
+{
+  "run_id": "20260721-024728_final-test-k5_68bd89db",
+  "frozen_spec_sha256": "68bd89db1662af32e17b6e5bd635ba485e1cd8816e5b392ffe29defe316b0508",
+  "frozen_git_commit": "0d76d055dedf531a7c64a5948ed4d946766ffd76",
+  "rows": 310,
+  "positive": 105,
+  "prevalence": 0.3387096774193548,
+  "model": {
+    "roc_auc": 0.7440185830429732,
+    "pr_auc": 0.6038557288949812,
+    "brier": 0.19543453028064375,
+    "ece_10_equal_width": 0.08237632494654035,
+    "aurc_discrete": 0.4783295905415625
+  },
+  "balanced_policy": {
+    "threshold": 0.42909763129981116,
+    "coverage": 0.4161290322580645,
+    "selective_risk": 0.4573643410852713,
+    "precision": 0.5426356589147286,
+    "recall": 0.6666666666666666,
+    "f1": 0.5982905982905983,
+    "confusion_matrix": [[146, 59], [35, 70]]
+  },
+  "source_runs": {
+    "bm25": "20260721-024512_bm25-chunk_7ee3b20f",
+    "semantic": "20260721-024558_semantic-chunk_94a0111c",
+    "hybrid": "20260721-024610_hybrid-rrf_24707106"
+  },
+  "final_manifest_sha256": "fa8b2db410377d21c387dec7a6c80525cbb379f8fcab2b53aea7654c360eb35a",
+  "no_refit_or_recalibration": true,
+  "final_test_used": true,
+  "gate_status_after_run": "completed_locked"
+}

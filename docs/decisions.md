@@ -40,6 +40,7 @@ Decisões são imutáveis por identificador. Alterações criam uma nova entrada
 | D034 | aceita | Reportar sensibilidade por reponderação em prevalências de 20%, 40%, 60% e 80%, sem recalibrar. | Torna explícita a dependência de Brier, ECE e risco em relação à mistura das classes. |
 | D035 | aceita | Congelar a especificação final v1 com k=5, `core_v1`, logística bruta e limiares já registrados. | Auditoria, baselines, calibração, robustez, erros, negativos difíceis e prevalência foram concluídos sem usar resultados finais. |
 | D036 | aceita | Reportar o desenvolvimento oficial como principal e duas sensibilidades de duplicação predefinidas. | Evita excluir casos retrospectivamente sem ocultar a sobreposição conhecida com treino. |
+| D037 | aceita | Classificar a hipótese como parcialmente apoiada. | PR-AUC melhorou contra RRF com IC positivo, mas ROC-AUC e AURC foram inconclusivos e os riscos das políticas não se generalizaram. |
 
 ## Ambiguidades abertas
 

@@ -1,0 +1,45 @@
+{
+  "created_at_utc": "2026-07-21T02:49:50.574722+00:00",
+  "git_commit": "b84aecf19e1d958a46302f31edfae5ab0b2c7bae",
+  "scope": "frozen_final_test_reporting",
+  "source_run_id": "20260721-024728_final-test-k5_68bd89db",
+  "frozen_spec_sha256": "68bd89db1662af32e17b6e5bd635ba485e1cd8816e5b392ffe29defe316b0508",
+  "predetermined_outputs": {
+    "tables": [
+      "retrieval_metrics",
+      "classification_and_calibration",
+      "frozen_policies",
+      "scenario_breakdown",
+      "duplicate_sensitivity",
+      "paired_bootstrap_comparisons"
+    ],
+    "figures": [
+      "reliability_diagram",
+      "risk_coverage_curve",
+      "confusion_matrix_balanced",
+      "scenario_probability_distribution"
+    ],
+    "error_analysis": "frozen_balanced_policy"
+  },
+  "final_test_used": true,
+  "no_refit_or_recalibration": true,
+  "sources": {
+    "final_manifest": "fa8b2db410377d21c387dec7a6c80525cbb379f8fcab2b53aea7654c360eb35a",
+    "metrics": "80edcc4720dfb5eb33aaf17592d6f12eccaa8dea9539ae4151d1027e5e83887d",
+    "predictions": "2b7b7aad4388f79cd168bdaa2d50fd25d23b67094780ddd91a1c218a7698df7d"
+  },
+  "artifacts": {
+    "reliability_final.png": "5b0df6e0968bc042dcd155f25518312b9e199b26a036b24a932a9f7e643379b3",
+    "reliability_final.svg": "ed720daf133e8ec55feb418fc01e119d07d49fbcd9080c8373655d75d18e891a",
+    "risk_coverage_final.png": "972cc9c70c870f65a49949fbc927bee8cce1c9f04d33fc6a369cf0088d61b871",
+    "risk_coverage_final.svg": "8d0a491a3fa1d8c586d4096d038a6a8130ff41ac3ca13f8f400b4989a3066a28",
+    "confusion_balanced_final.png": "785cb8419fc0b503ed71ddf44a894cb26af33dd5e693bd83f485d3fb96da62f1",
+    "confusion_balanced_final.svg": "8d73d028febdb711e997aade94c2fe0954a358295198efa461c64c705c9f3d52",
+    "scenario_probabilities_final.png": "fda86b7096374956bd02bfed11fc4e00b8f9f08fe09a562aa978588e3d1d4de5",
+    "scenario_probabilities_final.svg": "3b59014c536874a27a47b04ec38a923354c33798f9c230df844af4a7953aa0a5",
+    "subset_metrics.csv": "74c69c284326a6502c8c5f6d5402b92a55ecd8adef0f8bc436134e3d9a258004",
+    "retrieval_metrics.csv": "013dff4ef3785104e36eb9e7cc4799a43b163fdfdffdea7d303a5d074867a16c",
+    "bootstrap_comparisons.csv": "645a6f6c228d31055bb8bf78fd0fff347e7211db7422aa903f344c43eaabcd31",
+    "error_analysis_balanced.csv": "ccd472f0d6fe41226a27a1a77aedefa19471142c707ee56dae01b631710c8cfb"
+  }
+}

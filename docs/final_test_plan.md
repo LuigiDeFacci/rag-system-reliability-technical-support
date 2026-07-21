@@ -1,6 +1,6 @@
 # Plano congelado de avaliação final
 
-**Estado:** pronto para execução controlada; gate fechado.  
+**Estado:** executado integralmente; gate fechado após a campanha.  
 **Especificação:** `configs/final_test_spec.yaml`.
 
 ## Pré-condições

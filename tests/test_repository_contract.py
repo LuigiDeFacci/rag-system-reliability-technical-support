@@ -35,15 +35,17 @@ class RepositoryContractTest(unittest.TestCase):
             "docs/hard_negative_audit.md",
             "docs/prevalence_sensitivity.md",
             "docs/final_test_plan.md",
+            "docs/final_results.md",
             "requirements-win-cuda.lock.txt",
         ]
         for relative_path in required:
             with self.subTest(path=relative_path):
                 self.assertTrue((ROOT / relative_path).is_file())
 
-    def test_results_draft_does_not_claim_final_test(self) -> None:
+    def test_results_draft_records_frozen_final_test(self) -> None:
         text = (ROOT / "docs" / "tcc_results_draft.md").read_text(encoding="utf-8")
-        self.assertIn("teste final não executado", text.lower())
+        self.assertIn("20260721-024728", text)
+        self.assertNotIn("teste final não executado", text.lower())
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 # Texto-base de resultados para o TCC
 
-**Estado:** auditoria concluída; resultados internos preliminares; teste final não executado.
+**Estado:** avaliação final congelada concluída; texto factual pronto para transcrição e revisão acadêmica.
 
 Este arquivo receberá somente fatos derivados de execuções registradas, com referência ao `run_id`, configuração e versão dos dados. Hipóteses, expectativas e decisões de projeto não serão apresentadas como achados.
 
@@ -77,3 +77,28 @@ reajustar o modelo, o ECE-10 foi 0,194, 0,097, 0,132 e 0,237. O risco do ponto e
 foi 40,4%, 20,3%, 10,1% e 4,1%, respectivamente. Na prevalência de 20%, o IC95% do risco
 foi 23,9%–52,5%. A variação confirma que a calibração e a política são condicionais à
 distribuição avaliada e não devem ser interpretadas como probabilidades universais.
+
+## Resultado final congelado
+
+O run final `20260721-024728_final-test-k5_68bd89db` foi executado com a especificação
+congelada, sem refit ou recalibração.
+
+No desenvolvimento oficial, a recuperação RRF cobriu o span em 65,6% das 160 perguntas
+respondíveis em k=5, contra 62,5% do BM25 e 63,1% do semântico. O mecanismo de confiança
+obteve ROC-AUC 0,744, PR-AUC 0,604, Brier 0,195, ECE-10 0,082 e AURC 0,478 nas 310
+perguntas. As análises sem duplicatas exatas e sem flags de quase duplicata apresentaram
+ROC-AUC 0,742 e 0,738, respectivamente.
+
+Na política equilibrada congelada, cobertura foi 41,6%, risco 45,7%, precisão 0,543, recall
+0,667 e F1 0,598. Foram observadas 59 falsas autorizações — 47 perguntas nativamente não
+respondíveis e 12 misses — e 35 abstenções indevidas. A política conservadora, embora
+selecionada internamente para risco ≤10%, apresentou risco final de 35,7% com cobertura de
+13,5%, evidenciando mudança de distribuição e ausência de garantia operacional.
+
+Em comparação ao RRF top-1, a logística melhorou PR-AUC em 0,100 (IC95% 0,034–0,172). A
+diferença de ROC-AUC foi 0,024 (−0,023–0,067) e a redução de AURC foi 0,068
+(−0,005–0,096), ambas com intervalos incluindo zero. Contra BM25 e semântico, os intervalos
+das três métricas favoreceram a logística. Conclui-se que a hipótese recebeu apoio parcial:
+a combinação melhora a identificação de positivos em relação aos sinais isolados, mas não
+demonstrou superioridade uniforme sobre RRF nem estabilidade suficiente dos riscos para uso
+direto como política de produção.

@@ -89,3 +89,17 @@ e decisão decorrente neste diário ou no `experiment_registry.md`.
    especificação, ancestral Git congelado, hashes de dados/modelo e três runs gated.
 3. O protocolo passou à versão 1.0. O gate permanece fechado até um commit separado registrar
    o hash e o commit congelado.
+
+## 2026-07-20 — campanha final e relatório
+
+1. O gate foi aberto uma vez no commit `6f4fe43`, vinculado à especificação `68bd89db...` e
+   ao commit congelado `0d76d05`.
+2. BM25, semântico e RRF avaliaram as mesmas 310 perguntas. Nenhuma decisão foi alterada
+   entre as execuções.
+3. O avaliador verificou hashes, ancestral Git e worktree limpa, aplicou o modelo congelado e
+   executou 2.000 bootstraps pareados por pergunta.
+4. O gate foi fechado no commit `975139b` antes da geração de relatórios.
+5. As quatro figuras previstas, tabelas, lista de erros e manifesto foram gerados em
+   `figures/final_test_v1/` pelo código versionado no commit `b84aecf`.
+6. A hipótese foi classificada como parcialmente apoiada; resultados inferiores ou
+   inconclusivos foram mantidos sem reabrir o protocolo.
