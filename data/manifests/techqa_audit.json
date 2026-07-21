@@ -1,0 +1,1227 @@
+{
+  "generated_at_utc": "2026-07-21T00:08:22.062525+00:00",
+  "python": "3.14.0",
+  "git_commit": null,
+  "source": {
+    "url": "https://huggingface.co/datasets/PrimeQA/TechQA",
+    "archive_size": 2959973525,
+    "archive_sha256": "6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118",
+    "dataset_license": "CDLA-Permissive-1.0"
+  },
+  "files": {
+    "train": {
+      "path": "data/raw/TechQA/training_and_dev/training_Q_A.json",
+      "bytes": 1149612,
+      "sha256": "0e9b77bc1ad7f7e95d05b095a34b1ece75c679575747949288a1d0f7470f4f46"
+    },
+    "dev": {
+      "path": "data/raw/TechQA/training_and_dev/dev_Q_A.json",
+      "bytes": 560864,
+      "sha256": "df62a05619b07b386159bcbaaf3e0e50be93eaf983aea8a5f8ed1513a3c2ec6f"
+    },
+    "train_dev_documents": {
+      "path": "data/raw/TechQA/training_and_dev/training_dev_technotes.json",
+      "bytes": 291957707,
+      "sha256": "69261b5f4436d70379fd7172a8d97062c93f5d433c386d196937d198c66bf75a"
+    },
+    "validation_questions": {
+      "path": "data/raw/TechQA/validation/validation_questions.json",
+      "bytes": 34987,
+      "sha256": "24e39919f32f46a3701193994a9f7bcb7cd7c2ea53ee8306fbd7684537ea1037"
+    },
+    "validation_reference": {
+      "path": "data/raw/TechQA/validation/validation_reference.json",
+      "bytes": 40697,
+      "sha256": "83f2487dbfc3ae48538f84cc2f5d9427b160241381ed5ab5e13383b4c006a5d8"
+    },
+    "validation_documents": {
+      "path": "data/raw/TechQA/validation/validation_technotes.json",
+      "bytes": 10448626,
+      "sha256": "4c6b39fd178edeca81a87fb6634384ebb202572a5158f6d49337ba81d92c83f5"
+    },
+    "readme": {
+      "path": "data/raw/TechQA/README.txt",
+      "bytes": 5997,
+      "sha256": "c5a58ed7f2780fb2c4f2e06f8933ec4afbd06b5f29f6797c7857f3812f824060"
+    },
+    "license": {
+      "path": "data/raw/TechQA/CDLA-Permissive-v1.0.pdf",
+      "bytes": 92209,
+      "sha256": "e12775d6b5bfdba0bb33fd691dab386f0c7573853fdc4785c40b39739f120d5f"
+    }
+  },
+  "splits": {
+    "train": {
+      "name": "train",
+      "count": 600,
+      "unique_question_ids": 600,
+      "duplicate_question_ids": 0,
+      "answerability": {
+        "N": 150,
+        "Y": 450
+      },
+      "field_sets": {
+        "ANSWER|ANSWERABLE|DOCUMENT|DOC_IDS|END_OFFSET|QUESTION_ID|QUESTION_TEXT|QUESTION_TITLE|START_OFFSET": 600
+      },
+      "candidate_count": {
+        "minimum": 50,
+        "maximum": 50,
+        "mean": 50.0,
+        "distribution": {
+          "50": 600
+        }
+      },
+      "candidate_count_outliers": [],
+      "queries_with_duplicate_candidate_ids": 0,
+      "unique_candidate_documents": 20777,
+      "question_length_characters": {
+        "count": 600,
+        "minimum": 61,
+        "p25": 195,
+        "median": 293,
+        "p75": 416,
+        "p95": 871,
+        "maximum": 1765,
+        "mean": 352.315
+      },
+      "answer_span_length_characters": {
+        "count": 450,
+        "minimum": 30,
+        "p25": 146,
+        "median": 258,
+        "p75": 515,
+        "p95": 862,
+        "maximum": 1805,
+        "mean": 359.79333333333335
+      },
+      "answer_field_length_characters": {
+        "count": 450,
+        "minimum": 30,
+        "p25": 146,
+        "median": 258,
+        "p75": 515,
+        "p95": 862,
+        "maximum": 1805,
+        "mean": 359.79333333333335
+      },
+      "unique_gold_documents": 388,
+      "reused_gold_documents": 47,
+      "exact_duplicate_question_groups_within_split": 6,
+      "exact_duplicate_groups_with_label_conflicts": 2,
+      "missing_candidate_document_references": 0,
+      "gold_not_in_candidates": 0,
+      "missing_gold_documents": 0,
+      "invalid_offsets": 0,
+      "invalid_offset_ids": [],
+      "span_mismatches": 0,
+      "span_mismatch_ids": [],
+      "invalid_unanswerable_placeholders": 0
+    },
+    "dev": {
+      "name": "dev",
+      "count": 310,
+      "unique_question_ids": 310,
+      "duplicate_question_ids": 0,
+      "answerability": {
+        "N": 150,
+        "Y": 160
+      },
+      "field_sets": {
+        "ANSWER|ANSWERABLE|DOCUMENT|DOC_IDS|END_OFFSET|QUESTION_ID|QUESTION_TEXT|QUESTION_TITLE|START_OFFSET": 310
+      },
+      "candidate_count": {
+        "minimum": 49,
+        "maximum": 50,
+        "mean": 49.99677419354839,
+        "distribution": {
+          "49": 1,
+          "50": 309
+        }
+      },
+      "candidate_count_outliers": [
+        {
+          "query_id": "DEV_Q177",
+          "count": 49
+        }
+      ],
+      "queries_with_duplicate_candidate_ids": 2,
+      "unique_candidate_documents": 12355,
+      "question_length_characters": {
+        "count": 310,
+        "minimum": 23,
+        "p25": 210,
+        "median": 295,
+        "p75": 444,
+        "p95": 873,
+        "maximum": 1728,
+        "mean": 365.14516129032256
+      },
+      "answer_span_length_characters": {
+        "count": 160,
+        "minimum": 30,
+        "p25": 134,
+        "median": 248,
+        "p75": 460,
+        "p95": 791,
+        "maximum": 1148,
+        "mean": 314.24375
+      },
+      "answer_field_length_characters": {
+        "count": 160,
+        "minimum": 0,
+        "p25": 128,
+        "median": 241,
+        "p75": 445,
+        "p95": 752,
+        "maximum": 1148,
+        "mean": 303.7875
+      },
+      "unique_gold_documents": 148,
+      "reused_gold_documents": 12,
+      "exact_duplicate_question_groups_within_split": 1,
+      "exact_duplicate_groups_with_label_conflicts": 0,
+      "missing_candidate_document_references": 0,
+      "gold_not_in_candidates": 0,
+      "missing_gold_documents": 0,
+      "invalid_offsets": 0,
+      "invalid_offset_ids": [],
+      "span_mismatches": 11,
+      "span_mismatch_ids": [
+        "DEV_Q014",
+        "DEV_Q029",
+        "DEV_Q038",
+        "DEV_Q094",
+        "DEV_Q129",
+        "DEV_Q156",
+        "DEV_Q160",
+        "DEV_Q180",
+        "DEV_Q291",
+        "DEV_Q300",
+        "DEV_Q303"
+      ],
+      "invalid_unanswerable_placeholders": 0
+    },
+    "validation": {
+      "name": "validation",
+      "count": 20,
+      "unique_question_ids": 20,
+      "duplicate_question_ids": 0,
+      "answerability": {
+        "N": 9,
+        "Y": 11
+      },
+      "field_sets": {
+        "ANSWER|ANSWERABLE|DOCUMENT|DOC_IDS|END_OFFSET|QUESTION_ID|QUESTION_TEXT|QUESTION_TITLE|START_OFFSET": 20
+      },
+      "candidate_count": {
+        "minimum": 50,
+        "maximum": 50,
+        "mean": 50.0,
+        "distribution": {
+          "50": 20
+        }
+      },
+      "candidate_count_outliers": [],
+      "queries_with_duplicate_candidate_ids": 0,
+      "unique_candidate_documents": 994,
+      "question_length_characters": {
+        "count": 20,
+        "minimum": 113,
+        "p25": 249,
+        "median": 444,
+        "p75": 568,
+        "p95": 1473,
+        "maximum": 1701,
+        "mean": 579.95
+      },
+      "answer_span_length_characters": {
+        "count": 11,
+        "minimum": 100,
+        "p25": 102,
+        "median": 326,
+        "p75": 433,
+        "p95": 1148,
+        "maximum": 1148,
+        "mean": 338.1818181818182
+      },
+      "answer_field_length_characters": {
+        "count": 11,
+        "minimum": 0,
+        "p25": 102,
+        "median": 154,
+        "p75": 399,
+        "p95": 1148,
+        "maximum": 1148,
+        "mean": 298.8181818181818
+      },
+      "unique_gold_documents": 11,
+      "reused_gold_documents": 0,
+      "exact_duplicate_question_groups_within_split": 0,
+      "exact_duplicate_groups_with_label_conflicts": 0,
+      "missing_candidate_document_references": 0,
+      "gold_not_in_candidates": 0,
+      "missing_gold_documents": 0,
+      "invalid_offsets": 0,
+      "invalid_offset_ids": [],
+      "span_mismatches": 1,
+      "span_mismatch_ids": [
+        "VAL_Q014"
+      ],
+      "invalid_unanswerable_placeholders": 0
+    }
+  },
+  "documents": {
+    "train_dev": {
+      "count": 28482,
+      "field_coverage": {
+        "content": 28482,
+        "id": 28482,
+        "metadata": 28482,
+        "text": 28482,
+        "title": 28482
+      },
+      "metadata_coverage": {
+        "canonicalUrl": 28482,
+        "date": 28482,
+        "productId": 28482,
+        "productName": 28482,
+        "sourceDocumentId": 28482
+      },
+      "metadata_nonempty": {
+        "canonicalUrl": 28482,
+        "date": 28482,
+        "productId": 28482,
+        "productName": 28482,
+        "sourceDocumentId": 28482
+      },
+      "unique_product_names": 1129,
+      "unique_product_ids": 1918,
+      "text_length_characters": {
+        "count": 28482,
+        "minimum": 129,
+        "p25": 1987,
+        "median": 3059,
+        "p75": 4633,
+        "p95": 7799,
+        "maximum": 178280,
+        "mean": 3553.9269363106523
+      },
+      "empty_text": 0,
+      "id_mismatches": 28482,
+      "duplicate_text_groups": 4,
+      "documents_in_duplicate_text_groups": 9,
+      "largest_duplicate_group": 3
+    },
+    "validation": {
+      "count": 995,
+      "field_coverage": {
+        "content": 995,
+        "id": 995,
+        "metadata": 995,
+        "text": 995,
+        "title": 995
+      },
+      "metadata_coverage": {
+        "canonicalUrl": 995,
+        "date": 995,
+        "productId": 995,
+        "productName": 995,
+        "sourceDocumentId": 995
+      },
+      "metadata_nonempty": {
+        "canonicalUrl": 995,
+        "date": 995,
+        "productId": 995,
+        "productName": 995,
+        "sourceDocumentId": 995
+      },
+      "unique_product_names": 201,
+      "unique_product_ids": 250,
+      "text_length_characters": {
+        "count": 995,
+        "minimum": 339,
+        "p25": 2134,
+        "median": 3097,
+        "p75": 4981,
+        "p95": 8022,
+        "maximum": 18584,
+        "mean": 3725.835175879397
+      },
+      "empty_text": 0,
+      "id_mismatches": 995,
+      "duplicate_text_groups": 0,
+      "documents_in_duplicate_text_groups": 0,
+      "largest_duplicate_group": 1
+    }
+  },
+  "validation_question_reference_alignment_errors": 0,
+  "exact_question_overlap": [
+    {
+      "pair": "train__dev",
+      "shared_question_ids": 0,
+      "exact_question_text_matches": 22,
+      "exact_question_pair_count": 22,
+      "answerability_label_conflicts": 7,
+      "examples": [
+        {
+          "left_ids": [
+            "TRAIN_Q238"
+          ],
+          "right_ids": [
+            "DEV_Q082"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q206"
+          ],
+          "right_ids": [
+            "DEV_Q129"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q056"
+          ],
+          "right_ids": [
+            "DEV_Q155"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q067"
+          ],
+          "right_ids": [
+            "DEV_Q038"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q107"
+          ],
+          "right_ids": [
+            "DEV_Q160"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q248"
+          ],
+          "right_ids": [
+            "DEV_Q276"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q285"
+          ],
+          "right_ids": [
+            "DEV_Q094"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q047"
+          ],
+          "right_ids": [
+            "DEV_Q156"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q189"
+          ],
+          "right_ids": [
+            "DEV_Q290"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q210"
+          ],
+          "right_ids": [
+            "DEV_Q189"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q286"
+          ],
+          "right_ids": [
+            "DEV_Q240"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q559"
+          ],
+          "right_ids": [
+            "DEV_Q180"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q156"
+          ],
+          "right_ids": [
+            "DEV_Q195"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q299"
+          ],
+          "right_ids": [
+            "DEV_Q014"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q489"
+          ],
+          "right_ids": [
+            "DEV_Q029"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q228"
+          ],
+          "right_ids": [
+            "DEV_Q300"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q333"
+          ],
+          "right_ids": [
+            "DEV_Q228"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q138"
+          ],
+          "right_ids": [
+            "DEV_Q298"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q076"
+          ],
+          "right_ids": [
+            "DEV_Q179"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q507"
+          ],
+          "right_ids": [
+            "DEV_Q303"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q042"
+          ],
+          "right_ids": [
+            "DEV_Q225"
+          ]
+        },
+        {
+          "left_ids": [
+            "TRAIN_Q160"
+          ],
+          "right_ids": [
+            "DEV_Q165"
+          ]
+        }
+      ]
+    },
+    {
+      "pair": "train__validation",
+      "shared_question_ids": 0,
+      "exact_question_text_matches": 1,
+      "exact_question_pair_count": 1,
+      "answerability_label_conflicts": 0,
+      "examples": [
+        {
+          "left_ids": [
+            "TRAIN_Q299"
+          ],
+          "right_ids": [
+            "VAL_Q014"
+          ]
+        }
+      ]
+    },
+    {
+      "pair": "dev__validation",
+      "shared_question_ids": 0,
+      "exact_question_text_matches": 20,
+      "exact_question_pair_count": 20,
+      "answerability_label_conflicts": 0,
+      "examples": [
+        {
+          "left_ids": [
+            "DEV_Q004"
+          ],
+          "right_ids": [
+            "VAL_Q004"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q018"
+          ],
+          "right_ids": [
+            "VAL_Q018"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q012"
+          ],
+          "right_ids": [
+            "VAL_Q012"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q005"
+          ],
+          "right_ids": [
+            "VAL_Q005"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q003"
+          ],
+          "right_ids": [
+            "VAL_Q003"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q007"
+          ],
+          "right_ids": [
+            "VAL_Q007"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q015"
+          ],
+          "right_ids": [
+            "VAL_Q015"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q017"
+          ],
+          "right_ids": [
+            "VAL_Q017"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q014"
+          ],
+          "right_ids": [
+            "VAL_Q014"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q001"
+          ],
+          "right_ids": [
+            "VAL_Q001"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q019"
+          ],
+          "right_ids": [
+            "VAL_Q019"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q009"
+          ],
+          "right_ids": [
+            "VAL_Q009"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q016"
+          ],
+          "right_ids": [
+            "VAL_Q016"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q008"
+          ],
+          "right_ids": [
+            "VAL_Q008"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q010"
+          ],
+          "right_ids": [
+            "VAL_Q010"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q006"
+          ],
+          "right_ids": [
+            "VAL_Q006"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q002"
+          ],
+          "right_ids": [
+            "VAL_Q002"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q011"
+          ],
+          "right_ids": [
+            "VAL_Q011"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q013"
+          ],
+          "right_ids": [
+            "VAL_Q013"
+          ]
+        },
+        {
+          "left_ids": [
+            "DEV_Q000"
+          ],
+          "right_ids": [
+            "VAL_Q000"
+          ]
+        }
+      ]
+    }
+  ],
+  "near_duplicate_question_overlap": [
+    {
+      "pair": "train__dev",
+      "threshold": 0.9,
+      "count": 49,
+      "unique_left_queries": 46,
+      "unique_right_queries": 43,
+      "pairs": [
+        {
+          "left_id": "TRAIN_Q042",
+          "right_id": "DEV_Q225",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q047",
+          "right_id": "DEV_Q156",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q056",
+          "right_id": "DEV_Q155",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q067",
+          "right_id": "DEV_Q038",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q076",
+          "right_id": "DEV_Q179",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q107",
+          "right_id": "DEV_Q160",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q138",
+          "right_id": "DEV_Q298",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q156",
+          "right_id": "DEV_Q195",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q160",
+          "right_id": "DEV_Q165",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q189",
+          "right_id": "DEV_Q290",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q206",
+          "right_id": "DEV_Q129",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q210",
+          "right_id": "DEV_Q189",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q228",
+          "right_id": "DEV_Q300",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q238",
+          "right_id": "DEV_Q082",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q248",
+          "right_id": "DEV_Q276",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q285",
+          "right_id": "DEV_Q039",
+          "similarity": 1.0,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q285",
+          "right_id": "DEV_Q094",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q286",
+          "right_id": "DEV_Q240",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q299",
+          "right_id": "DEV_Q014",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q333",
+          "right_id": "DEV_Q228",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q341",
+          "right_id": "DEV_Q226",
+          "similarity": 1.0,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q489",
+          "right_id": "DEV_Q029",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q507",
+          "right_id": "DEV_Q303",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q559",
+          "right_id": "DEV_Q180",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q258",
+          "right_id": "DEV_Q063",
+          "similarity": 0.989881,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q303",
+          "right_id": "DEV_Q004",
+          "similarity": 0.984141,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q162",
+          "right_id": "DEV_Q260",
+          "similarity": 0.982902,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q491",
+          "right_id": "DEV_Q097",
+          "similarity": 0.982902,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q028",
+          "right_id": "DEV_Q115",
+          "similarity": 0.978234,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q247",
+          "right_id": "DEV_Q261",
+          "similarity": 0.974111,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q072",
+          "right_id": "DEV_Q171",
+          "similarity": 0.972019,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q150",
+          "right_id": "DEV_Q171",
+          "similarity": 0.969844,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q134",
+          "right_id": "DEV_Q040",
+          "similarity": 0.964585,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q203",
+          "right_id": "DEV_Q033",
+          "similarity": 0.962266,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q353",
+          "right_id": "DEV_Q088",
+          "similarity": 0.959537,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q021",
+          "right_id": "DEV_Q037",
+          "similarity": 0.958776,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q278",
+          "right_id": "DEV_Q257",
+          "similarity": 0.949321,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q291",
+          "right_id": "DEV_Q037",
+          "similarity": 0.947045,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q151",
+          "right_id": "DEV_Q304",
+          "similarity": 0.945711,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q016",
+          "right_id": "DEV_Q001",
+          "similarity": 0.943879,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q015",
+          "right_id": "DEV_Q037",
+          "similarity": 0.936308,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q015",
+          "right_id": "DEV_Q066",
+          "similarity": 0.933081,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q120",
+          "right_id": "DEV_Q134",
+          "similarity": 0.928757,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q148",
+          "right_id": "DEV_Q037",
+          "similarity": 0.922415,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q286",
+          "right_id": "DEV_Q036",
+          "similarity": 0.921511,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q521",
+          "right_id": "DEV_Q192",
+          "similarity": 0.918068,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q356",
+          "right_id": "DEV_Q001",
+          "similarity": 0.90989,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q578",
+          "right_id": "DEV_Q304",
+          "similarity": 0.907851,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q257",
+          "right_id": "DEV_Q222",
+          "similarity": 0.903024,
+          "exact": false
+        }
+      ],
+      "truncated": false
+    },
+    {
+      "pair": "train__validation",
+      "threshold": 0.9,
+      "count": 4,
+      "unique_left_queries": 4,
+      "unique_right_queries": 3,
+      "pairs": [
+        {
+          "left_id": "TRAIN_Q299",
+          "right_id": "VAL_Q014",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "TRAIN_Q303",
+          "right_id": "VAL_Q004",
+          "similarity": 0.984141,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q016",
+          "right_id": "VAL_Q001",
+          "similarity": 0.943879,
+          "exact": false
+        },
+        {
+          "left_id": "TRAIN_Q356",
+          "right_id": "VAL_Q001",
+          "similarity": 0.90989,
+          "exact": false
+        }
+      ],
+      "truncated": false
+    },
+    {
+      "pair": "dev__validation",
+      "threshold": 0.9,
+      "count": 21,
+      "unique_left_queries": 21,
+      "unique_right_queries": 20,
+      "pairs": [
+        {
+          "left_id": "DEV_Q000",
+          "right_id": "VAL_Q000",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q001",
+          "right_id": "VAL_Q001",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q002",
+          "right_id": "VAL_Q002",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q003",
+          "right_id": "VAL_Q003",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q004",
+          "right_id": "VAL_Q004",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q005",
+          "right_id": "VAL_Q005",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q006",
+          "right_id": "VAL_Q006",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q007",
+          "right_id": "VAL_Q007",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q008",
+          "right_id": "VAL_Q008",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q009",
+          "right_id": "VAL_Q009",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q010",
+          "right_id": "VAL_Q010",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q011",
+          "right_id": "VAL_Q011",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q012",
+          "right_id": "VAL_Q012",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q013",
+          "right_id": "VAL_Q013",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q014",
+          "right_id": "VAL_Q014",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q015",
+          "right_id": "VAL_Q015",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q016",
+          "right_id": "VAL_Q016",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q017",
+          "right_id": "VAL_Q017",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q018",
+          "right_id": "VAL_Q018",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q019",
+          "right_id": "VAL_Q019",
+          "similarity": 1.0,
+          "exact": true
+        },
+        {
+          "left_id": "DEV_Q302",
+          "right_id": "VAL_Q008",
+          "similarity": 0.905655,
+          "exact": false
+        }
+      ],
+      "truncated": false
+    }
+  ],
+  "candidate_document_overlap": [
+    {
+      "pair": "train__dev",
+      "left_unique_documents": 20777,
+      "right_unique_documents": 12355,
+      "shared_documents": 4671
+    },
+    {
+      "pair": "train__validation",
+      "left_unique_documents": 20777,
+      "right_unique_documents": 994,
+      "shared_documents": 435
+    },
+    {
+      "pair": "dev__validation",
+      "left_unique_documents": 12355,
+      "right_unique_documents": 994,
+      "shared_documents": 994
+    }
+  ]
+}

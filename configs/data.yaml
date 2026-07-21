@@ -1,0 +1,32 @@
+status: audited_v1
+dataset: techqa
+paths:
+  raw: data/raw
+  interim: data/interim
+  processed: data/processed
+  manifests: data/manifests
+source:
+  acquisition_method: huggingface_archive
+  url: https://huggingface.co/datasets/PrimeQA/TechQA
+  expected_archive_size_gb: 2.96
+  archive_sha256: 6b094ef9a69718f727ce8d7e15c4d961e51032cefaa952e0d6af9d176d7ba118
+  dataset_license: CDLA-Permissive-1.0
+  license_verified: true
+  checksum_manifest: data/manifests/techqa_audit.json
+splits:
+  preserve_official: true
+  group_key: query_id
+  fit_source: official_train_grouped_subset
+  calibration_source: official_train_grouped_subset
+  threshold_selection_source: official_train_grouped_subset
+  final_test_source: official_dev_locked
+  smoke_test_only: official_validation_20
+  robustness:
+    - official_dev_without_exact_train_duplicates
+    - secondary_grouped_resplit
+audit:
+  exact_duplicates: true
+  near_duplicates: true
+  shared_documents_across_splits: true
+  answer_spans: true
+  native_unanswerable_labels: true

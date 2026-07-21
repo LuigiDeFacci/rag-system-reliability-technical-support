@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secrets and local configuration
+.env
+*.key
+
+# Data artifacts (retain documentation)
+data/raw/*
+!data/raw/.gitkeep
+data/interim/*
+!data/interim/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/manifests/*
+!data/manifests/.gitkeep
+!data/manifests/*.json
+
+# Run artifacts (final selected tables/figures may be committed separately)
+results/runs/*
+!results/runs/.gitkeep
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+~$*.docx
+
+# Local academic/course material with separate or unknown redistribution terms
+*.docx
+Referemcoas/
+RAGS -docs from course/

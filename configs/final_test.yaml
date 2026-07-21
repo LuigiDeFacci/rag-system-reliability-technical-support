@@ -1,0 +1,11 @@
+status: locked
+allow_test: false
+requirements:
+  protocol_frozen: false
+  data_audit_complete: true
+  feature_set_frozen: false
+  model_frozen: false
+  calibrator_frozen: false
+  thresholds_frozen: false
+  config_hash: null
+  git_commit: null

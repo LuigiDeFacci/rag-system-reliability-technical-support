@@ -1,0 +1,22 @@
+status: provisional
+seed: 42
+primary_outcome: evidence_sufficient
+models:
+  - bm25_threshold
+  - semantic_threshold
+  - hybrid_threshold
+  - logistic_regression
+calibration:
+  methods: [raw, platt, isotonic]
+  fit_split: calibration
+threshold_selection_split: selection
+metrics:
+  retrieval: [recall_at_k, mrr, ndcg_at_k]
+  classification: [precision, recall, f1, roc_auc, pr_auc]
+  calibration: [brier, ece]
+  selective: [coverage, selective_risk, aurc]
+bootstrap:
+  grouped_by: query_id
+  paired: true
+  replicates: 2000
+  confidence_level: 0.95
