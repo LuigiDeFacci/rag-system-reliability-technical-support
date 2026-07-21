@@ -1,6 +1,7 @@
 status: provisional
 seed: 42
 primary_outcome: evidence_sufficient
+training_split: fit
 models:
   - bm25_threshold
   - semantic_threshold
@@ -9,7 +10,39 @@ models:
 calibration:
   methods: [raw, platt, isotonic]
   fit_split: calibration
+  ece_bins: 10
+  ece_binning: equal_width
 threshold_selection_split: selection
+feature_set:
+  name: core_v1
+  columns:
+    - bm25_top1_zscore
+    - bm25_margin_top1_top2_raw
+    - bm25_topk_mean_zscore
+    - bm25_topk_std_zscore
+    - semantic_top1_zscore
+    - semantic_margin_top1_top2_raw
+    - semantic_topk_mean_zscore
+    - semantic_topk_std_zscore
+    - rrf_top1_score_raw
+    - rrf_margin_top1_top2_raw
+    - rrf_topk_mean_raw
+    - rrf_topk_std_raw
+    - lex_sem_top1_document_agreement
+    - lex_sem_topk_chunk_jaccard
+    - lex_sem_topk_document_jaccard
+    - hybrid_lex_topk_chunk_jaccard
+    - hybrid_sem_topk_chunk_jaccard
+    - lex_sem_full_rank_correlation
+    - query_length_technical_tokens
+    - query_version_pattern_count
+    - query_code_pattern_count
+    - hybrid_context_unique_documents
+logistic_regression:
+  C: 1.0
+  class_weight: null
+  max_iter: 2000
+  solver: lbfgs
 metrics:
   retrieval: [recall_at_k, mrr, ndcg_at_k]
   classification: [precision, recall, f1, roc_auc, pr_auc]

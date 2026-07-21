@@ -26,6 +26,8 @@ Decisões são imutáveis por identificador. Alterações criam uma nova entrada
 | D020 | aceita | Fixar o host de execução em Python 3.10.2, PyTorch 2.11.0+cu128 e lock específico de Windows/CUDA. | Python 3.14 não era compatível; a GPU reduziu a projeção de embeddings em aproximadamente nove vezes. |
 | D021 | aceita | Ignorar no Git o DOCX do TCC, PDFs de referência e notebooks copiados do curso. | São insumos locais com termos de redistribuição distintos; o repositório público conterá apenas código e documentação autoral. |
 | D022 | aceita | Usar exclusivamente o split interno `selection` para escolher k e thresholds. | Corrige a nomenclatura antiga `validation` e mantém `calibration` separado do ajuste e da seleção. |
+| D023 | aceita | Fixar `core_v1` com 22 features interpretáveis antes de avaliar o classificador. | Mantém scores normalizados, margens, dispersão, concordância e sinais observáveis da pergunta; campos gold e tipo de cenário ficam excluídos. |
+| D024 | aceita | Treinar uma regressão logística separada para cada k, com `C=1` e sem busca de hiperparâmetros. | Evita que o modelo aprenda k como atalho e respeita a ordem de complexidade definida no protocolo. |
 
 ## Ambiguidades abertas
 
