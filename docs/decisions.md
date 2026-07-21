@@ -38,13 +38,15 @@ Decisões são imutáveis por identificador. Alterações criam uma nova entrada
 | D032 | aceita | Definir conflito técnico forte apenas para CVEs incompatíveis no mesmo produto; manter outras detecções como candidatas. | A amostra exploratória revelou ruído de timestamps, IDs de suporte e versões incidentais. |
 | D033 | aceita | Avaliar remoção artificial do gold somente como falsa autorização em prevalência zero. | ROC-AUC, PR-AUC e probabilidade calibrada não têm interpretação operacional nesse conjunto totalmente negativo. |
 | D034 | aceita | Reportar sensibilidade por reponderação em prevalências de 20%, 40%, 60% e 80%, sem recalibrar. | Torna explícita a dependência de Brier, ECE e risco em relação à mistura das classes. |
+| D035 | aceita | Congelar a especificação final v1 com k=5, `core_v1`, logística bruta e limiares já registrados. | Auditoria, baselines, calibração, robustez, erros, negativos difíceis e prevalência foram concluídos sem usar resultados finais. |
+| D036 | aceita | Reportar o desenvolvimento oficial como principal e duas sensibilidades de duplicação predefinidas. | Evita excluir casos retrospectivamente sem ocultar a sobreposição conhecida com treino. |
 
 ## Ambiguidades abertas
 
 | ID | Questão | Critério de resolução |
 |---|---|---|
-| A004 | A configuração v1 é suficiente para a comparação principal? | Comparar cobertura contextual apenas nos splits internos; congelar antes do teste final. |
+| A004 | resolvida por D035 | A configuração v1 foi congelada após as verificações internas, mesmo com limitações no estresse difícil. |
 | A005 | resolvida por D020 | Manter locks específicos por plataforma quando houver wheels distintos do PyTorch. |
 | A006 | Qual licença aplicar ao código do repositório? | Escolha do autor antes da publicação; dados terão termos separados. |
-| A007 | Como tratar os 11 spans divergentes do desenvolvimento? | Revisão manual registrada antes de congelar o rótulo de chunk. |
-| A008 | Quais quase duplicatas representam o mesmo caso? | Revisão manual da triagem TF-IDF; não excluir automaticamente. |
+| A007 | resolvida por QD-001 | Usar offsets válidos como gold e reportar sensibilidade documental; não corrigir o release. |
+| A008 | resolvida por D036 | Exatas definem `dev_clean_exact`; flags TF-IDF existentes definem análise exploratória `dev_clean_near`, sem exclusão da principal. |

@@ -79,3 +79,13 @@ e decisão decorrente neste diário ou no `experiment_registry.md`.
    80%, evidenciando que a política depende da mistura avaliada.
 4. Nenhuma prevalência-alvo foi escolhida como operacional; a análise permanece uma
    sensibilidade interna e o teste final continua fechado.
+
+## 2026-07-20 — congelamento do protocolo
+
+1. Dados, recuperação, k=5, 22 features, regressão logística, probabilidade bruta, políticas,
+   baselines, métricas, bootstrap, subconjuntos e saídas gráficas foram fixados em
+   `configs/final_test_spec.yaml`.
+2. Foi criado um avaliador final que exige flag explícita, worktree limpa, hash exato da
+   especificação, ancestral Git congelado, hashes de dados/modelo e três runs gated.
+3. O protocolo passou à versão 1.0. O gate permanece fechado até um commit separado registrar
+   o hash e o commit congelado.

@@ -1,4 +1,4 @@
-status: internal_experiment
+status: frozen_for_final_test
 corpus_mode: official_candidate_set
 full_corpus_role: secondary_only
 chunking:

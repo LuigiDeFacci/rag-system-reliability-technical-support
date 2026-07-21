@@ -1,0 +1,66 @@
+status: frozen
+dataset:
+  version: techqa_v1
+  split: final_test
+  expected_rows: 310
+  questions_sha256: 1f4ba12aa77a545f06ef34edd9526074b873b1980ee07d7f60979894ee500e32
+  documents_sha256: 914e42c8fd0aa2ac7c1c0c7e2f50d0b057bf8d6bd70f80329b113514b8f3112c
+retrieval:
+  cutoffs: [1, 3, 5, 10]
+  primary_k: 5
+  bm25:
+    k1: 1.2
+    b: 0.75
+  semantic:
+    model: BAAI/bge-small-en-v1.5
+    revision: 5c38ec7c405ec4b44b94cc5a9bb96e735b38267a
+  hybrid:
+    method: reciprocal_rank_fusion
+    rrf_k: 60
+model:
+  source_run_id: 20260721-021033_confidence-logreg_27fc4ef8
+  source_manifest_sha256: 1d6adba5e21b6385b60b79cc892efd826ef1df2c8d5a1c5aed1ac8da37ed895e
+  artifact: models/confidence_k5.joblib
+  artifact_sha256: 962328a388e6b0029f842646ba0ef05e873bc10231beecb4d9bad50816041608
+  feature_set: core_v1
+  calibrator: raw
+policies:
+  conservative: 0.7309070906513128
+  balanced: 0.42909763129981116
+  expansive: 0.4138131831979334
+baselines:
+  bm25:
+    signal: bm25_top1_score_raw
+    threshold: 75.14413997816413
+  semantic:
+    signal: semantic_top1_score_raw
+    threshold: 0.8424208760261536
+  hybrid:
+    signal: rrf_top1_score_raw
+    threshold: 0.03225806451612903
+evaluation:
+  ece_bins: 10
+  ece_binning: equal_width
+  aurc: discrete_mean_cumulative_risk
+  bootstrap_replicates: 2000
+  bootstrap_seed: 42
+  bootstrap_unit: query_id
+  paired_comparisons: true
+  subsets:
+    - official_dev
+    - dev_clean_exact
+    - dev_clean_near
+reporting:
+  tables:
+    - retrieval_metrics
+    - classification_and_calibration
+    - frozen_policies
+    - scenario_breakdown
+    - duplicate_sensitivity
+    - paired_bootstrap_comparisons
+  figures:
+    - reliability_diagram
+    - risk_coverage_curve
+    - confusion_matrix_balanced
+    - scenario_probability_distribution
+  error_analysis: frozen_balanced_policy

@@ -1,4 +1,4 @@
-status: provisional
+status: frozen_for_final_test
 seed: 42
 primary_outcome: evidence_sufficient
 training_split: fit
@@ -58,7 +58,7 @@ prevalence_sensitivity:
   method: analytic_class_reweighting
   refit_or_recalibrate: false
 internal_selection:
-  status: frozen_for_robustness_checks
+  status: frozen_for_final_test
   source_run_id: 20260721-021033_confidence-logreg_27fc4ef8
   primary_k: 5
   calibrator: raw

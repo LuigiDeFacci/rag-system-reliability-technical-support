@@ -1,8 +1,8 @@
 # Protocolo de pesquisa
 
-**Versão:** 0.3 — provisória após avaliação interna  
+**Versão:** 1.0 — congelada para avaliação final  
 **Data:** 20 de julho de 2026  
-**Estado:** não congelado; proibida a avaliação final em teste.
+**Estado:** protocolo congelado; teste ainda bloqueado até a abertura explícita do gate.
 
 ## Pergunta e hipótese
 
@@ -68,6 +68,12 @@ cálculo e os mesmos exemplos serão usados em comparações pareadas.
 ## Congelamento e teste
 
 Antes do teste final, devem estar congelados: versão dos dados, segmentação, k, variáveis, transformações, modelo, calibrador, limiares, métricas, gráficos previstos e código. A execução exigirá `--allow-test` e configuração com hashes. “Uma única vez” significa ausência de ajuste posterior ao resultado; reruns idênticos para verificação serão permitidos e registrados.
+
+O congelamento v1 fixa k=5, `core_v1`, regressão logística `C=1`, probabilidade bruta e os
+três limiares registrados em `configs/final_test_spec.yaml`. A análise principal usa todo o
+desenvolvimento oficial. `dev_clean_exact` e `dev_clean_near` são sensibilidades previstas,
+não substitutos escolhidos após observar resultados. As tabelas, figuras e comparações
+permitidas também estão enumeradas na especificação congelada.
 
 ## Ameaças previstas
 
