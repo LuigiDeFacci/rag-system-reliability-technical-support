@@ -75,7 +75,7 @@ def reliability_figure(reliability: pd.DataFrame) -> plt.Figure:
         label="Regressão logística",
     )
     axis.set(xlabel="Probabilidade média", ylabel="Fração positiva", xlim=(0, 1), ylim=(0, 1))
-    axis.set_title("Diagrama de confiabilidade — teste final, k=5")
+    axis.set_title("Diagrama de confiabilidade — holdout final local, k=5")
     axis.grid(alpha=0.25)
     axis.legend(frameon=False)
     figure.tight_layout()
@@ -100,7 +100,7 @@ def risk_coverage_figure(predictions: pd.DataFrame) -> plt.Figure:
             label=f"{name} (AURC={curve['aurc_discrete']:.3f})",
         )
     axis.set(xlabel="Cobertura", ylabel="Risco seletivo", xlim=(0, 1), ylim=(0, 1))
-    axis.set_title("Risco × cobertura — teste final, k=5")
+    axis.set_title("Risco × cobertura — holdout final local, k=5")
     axis.grid(alpha=0.25)
     axis.legend(frameon=False)
     figure.tight_layout()
@@ -125,7 +125,7 @@ def confusion_figure(matrix: list[list[int]]) -> plt.Figure:
 
 def scenario_figure(predictions: pd.DataFrame) -> plt.Figure:
     order = ["native_unanswerable", "natural_retrieval_miss", "natural_sufficient"]
-    labels = ["Não respondível", "Miss de retrieval", "Suficiente"]
+    labels = ["Sem evidência nos candidatos", "Miss de retrieval", "Suficiente"]
     values = [
         predictions.loc[predictions["scenario_type"] == scenario, "probability"].to_numpy()
         for scenario in order
@@ -133,7 +133,7 @@ def scenario_figure(predictions: pd.DataFrame) -> plt.Figure:
     figure, axis = plt.subplots(figsize=(7.2, 5.0))
     axis.boxplot(values, tick_labels=labels, showmeans=True)
     axis.set(ylabel="Probabilidade de evidência suficiente", ylim=(0, 1))
-    axis.set_title("Confiança por tipo de cenário — teste final")
+    axis.set_title("Confiança por tipo de cenário — holdout final local")
     axis.grid(axis="y", alpha=0.25)
     figure.tight_layout()
     return figure

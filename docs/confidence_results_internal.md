@@ -55,7 +55,8 @@ sustenta que toda feature acrescenta valor a toda métrica.
 ## Análise de erros
 
 Dos dez falsos positivos do ponto equilibrado, oito eram `natural_retrieval_miss` e dois
-perguntas nativamente não respondíveis. A inspeção mostra candidatos muito semelhantes à
+perguntas sem evidência anotada entre os candidatos oficiais (a classe nativa “não
+respondível”). A inspeção mostra candidatos muito semelhantes à
 pergunta — por vezes com o mesmo erro ou produto no título — mas sem o span anotado no
 contexto. Os nove falsos negativos eram contextos suficientes; apareceram em consultas com
 versões, boletins e documentos quase duplicados, nas quais a evidência estava presente mas

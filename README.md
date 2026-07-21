@@ -60,7 +60,9 @@ $env:PYTHONPATH = (Resolve-Path .\src).Path
 .\.venv\Scripts\python.exe -m rag_confidence.scenarios.build_hard_negatives --help
 .\.venv\Scripts\python.exe -m rag_confidence.evaluation.evaluate_hard_negatives --help
 .\.venv\Scripts\python.exe -m rag_confidence.evaluation.run_prevalence_sensitivity --help
+.\.venv\Scripts\python.exe -m rag_confidence.evaluation.run_fixed_coverage_risk --help
 .\.venv\Scripts\python.exe -m rag_confidence.reporting.generate_internal_report --help
+.\.venv\Scripts\python.exe -m rag_confidence.reporting.generate_fixed_coverage_report --help
 .\.venv\Scripts\python.exe -m pytest
 .\.venv\Scripts\python.exe -m ruff check src tests
 ```
