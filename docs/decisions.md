@@ -41,6 +41,7 @@ Decisões são imutáveis por identificador. Alterações criam uma nova entrada
 | D035 | aceita | Congelar a especificação final v1 com k=5, `core_v1`, logística bruta e limiares já registrados. | Auditoria, baselines, calibração, robustez, erros, negativos difíceis e prevalência foram concluídos sem usar resultados finais. |
 | D036 | aceita | Reportar o desenvolvimento oficial como principal e duas sensibilidades de duplicação predefinidas. | Evita excluir casos retrospectivamente sem ocultar a sobreposição conhecida com treino. |
 | D037 | aceita | Classificar a hipótese como parcialmente apoiada. | PR-AUC melhorou contra RRF com IC positivo, mas ROC-AUC e AURC foram inconclusivos e os riscos das políticas não se generalizaram. |
+| D038 | aceita | Tratar como contribuição central a fragilidade de políticas estáticas de confiança sob mudança de distribuição. | A logística ordena melhor que os sinais isolados, mas o risco conservador passou de ≤10% na seleção para 35,7% no holdout e não houve vantagem uniforme sobre RRF em coberturas fixas. |
 
 ## Ambiguidades abertas
 

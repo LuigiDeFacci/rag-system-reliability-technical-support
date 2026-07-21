@@ -30,6 +30,13 @@ As perguntas usam `QUESTION_ID`, `QUESTION_TITLE`, `QUESTION_TEXT`, `DOC_IDS`, `
 
 Cada pergunta de treino possui 50 candidatos. Em desenvolvimento, `DEV_Q177` possui 49. `DEV_Q082` e `DEV_Q179` possuem um documento gold duplicado na lista; a preparação deduplicará IDs preservando a ordem.
 
+A publicação original descreve ainda um conjunto cego de avaliação com 490 perguntas, cujos
+rótulos não integram o release usado nesta pesquisa. Por isso, as 310 perguntas acima são o
+**desenvolvimento oficial usado como holdout final local**, não o “teste oficial”. No TechQA,
+uma pergunta é rotulada não respondível quando os anotadores não encontram resposta entre
+os 50 Technotes candidatos fornecidos; isso não equivale a impossibilidade universal de
+resposta. Fonte: [TechQA: A Dataset for New Models of Technical Question Answering](https://aclanthology.org/2020.acl-main.117/).
+
 ## Documentos e spans
 
 O arquivo de treino/desenvolvimento contém 28.482 Technotes; o de validação contém 995. Não há textos vazios ou divergências entre a chave do mapa e o campo `id`. Há quatro grupos de texto documental duplicado, totalizando nove IDs.
@@ -52,4 +59,3 @@ O experimento principal reranqueará os candidatos oficiais. O rótulo de não r
 O desenvolvimento oficial será mantido como holdout final para comparabilidade. Também serão reportados resultados sem duplicatas exatas de treino e uma análise secundária com agrupamento por pergunta. Nenhuma dessas transformações será apresentada como split oficial.
 
 O manifesto completo é regenerado por `src/rag_confidence/data/audit.py` em `data/manifests/techqa_audit.json`.
-

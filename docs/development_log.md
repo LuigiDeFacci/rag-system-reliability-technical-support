@@ -103,3 +103,17 @@ e decisão decorrente neste diário ou no `experiment_registry.md`.
    `figures/final_test_v1/` pelo código versionado no commit `b84aecf`.
 6. A hipótese foi classificada como parcialmente apoiada; resultados inferiores ou
    inconclusivos foram mantidos sem reabrir o protocolo.
+
+## 2026-07-21 — risco em coberturas fixas e revisão da contribuição
+
+1. As previsões finais congeladas foram comparadas em coberturas de 10%, 20%, 40%, 60%,
+   80% e 100%, sem refit, recalibração, seleção de limiar ou reabertura do gate.
+2. O run `20260721-122015_fixed-coverage_430de878` aplicou 2.000 bootstraps pareados por
+   pergunta e inclusão fracionária na fronteira para tornar empates do RRF auditáveis.
+3. A logística apresentou menor risco observado que o RRF até 40%, mas os IC95% das
+   diferenças incluíram zero; em 60% e 80%, o RRF foi ligeiramente melhor.
+4. A redação passou a distinguir o desenvolvimento oficial usado como holdout final local
+   do conjunto cego original de 490 perguntas e a limitar “não respondível” ao universo dos
+   candidatos oficiais.
+5. A contribuição foi reenquadrada como evidência da distância entre discriminação,
+   definição de limiar e controle de risco sob mudança de distribuição.

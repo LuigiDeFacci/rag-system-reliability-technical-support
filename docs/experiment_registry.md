@@ -39,8 +39,9 @@ gold. `final_test_used=false` nos três manifestos.
 | `20260721-024558_semantic-chunk_94a0111c` | BGE final | contexto R@5 0,631; MRR 0,496 |
 | `20260721-024610_hybrid-rrf_24707106` | RRF final | contexto R@5 0,656; MRR 0,531 |
 | `20260721-024728_final-test-k5_68bd89db` | confiança final | ROC-AUC 0,744; PR-AUC 0,604; Brier 0,195; AURC 0,478 |
+| `20260721-122015_fixed-coverage_430de878` | análise pós-hoc congelada | logística abaixo do RRF em risco observado até 40%, sem IC95% conclusivo; RRF ligeiramente melhor em 60% e 80% |
 
-Os quatro runs declaram `final_test_used=true`. O avaliador declara
+Os quatro runs da campanha e a análise pós-hoc declaram `final_test_used=true`. O avaliador declara
 `no_refit_or_recalibration=true`; o gate foi fechado após a campanha.
 
 Os dois runs substituídos não foram apagados localmente. O run selecionado contém modelos,

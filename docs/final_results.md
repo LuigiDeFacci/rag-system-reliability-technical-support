@@ -2,7 +2,9 @@
 
 **Run:** `20260721-024728_final-test-k5_68bd89db`  
 **Especificação:** SHA-256 `68bd89db...`; commit congelado `0d76d05`.  
-**Procedimento:** 310 perguntas; sem refit, recalibração ou alteração de limiar; gate fechado após a execução.
+**Procedimento:** 310 perguntas do desenvolvimento oficial, usado como holdout final local;
+sem refit, recalibração ou alteração de limiar; gate fechado após a execução. Esse conjunto
+não é o teste cego original de 490 perguntas do TechQA.
 
 ## Recuperação
 
@@ -56,15 +58,36 @@ Contra RRF, a melhoria foi 0,024 em ROC-AUC (IC95% −0,023–0,067), 0,100 em P
 PR-AUC, mas os intervalos de ROC-AUC e AURC incluem zero. Contra BM25 e semântico, os três
 intervalos ficaram acima de zero.
 
+## Risco em coberturas comparáveis
+
+| Cobertura | Logística | BM25 top-1 | Semântico top-1 | RRF top-1 |
+|---:|---:|---:|---:|---:|
+| 10% | 32,3% | 64,5% | 51,6% | 45,3% |
+| 20% | 35,5% | 66,1% | 50,0% | 45,3% |
+| 40% | 45,2% | 66,1% | 56,5% | 47,9% |
+| 60% | 53,8% | 64,0% | 60,8% | 53,3% |
+| 80% | 60,1% | 65,7% | 62,5% | 59,7% |
+| 100% | 66,1% | 66,1% | 66,1% | 66,1% |
+
+A análise pós-hoc `20260721-122015_fixed-coverage_430de878` usou somente as previsões
+congeladas. A logística teve menor risco observado que o RRF em 10%, 20% e 40%, mas os
+IC95% pareados das reduções incluíram zero. Em 60% e 80%, o RRF foi ligeiramente melhor.
+Empates na fronteira foram tratados por inclusão fracionária, evitando dependência da ordem
+arbitrária das linhas.
+
 ## Erros e conclusão
 
 Na política equilibrada, a matriz foi `[[146,59],[35,70]]`: 59 falsas autorizações e 35
-abstenções indevidas. Das falsas autorizações, 47 eram perguntas nativamente não
-respondíveis e 12 misses de recuperação. O mecanismo distingue grupos em média, mas ainda
-atribui confiança alta a contextos tecnicamente plausíveis sem evidência anotada.
+abstenções indevidas. Das falsas autorizações, 47 eram perguntas sem resposta anotada entre
+os 50 Technotes candidatos oficiais e 12 eram misses de recuperação. Essa classe não
+significa que a pergunta seja universalmente impossível de responder. O mecanismo distingue
+grupos em média, mas ainda atribui confiança alta a contextos tecnicamente plausíveis sem
+evidência anotada.
 
-A hipótese recebe apoio parcial. Combinar sinais melhorou substancialmente PR-AUC em relação
-a qualquer threshold isolado e superou claramente BM25 e semântico. Porém, a vantagem sobre
-RRF não foi conclusiva em ROC-AUC ou AURC, e os riscos dos limiares gerenciais não se
-generalizaram. O mecanismo é útil como sinal de ordenação, mas a versão avaliada não deve ser
-tratada como política de autorização pronta para produção.
+A hipótese recebe apoio parcial. A combinação superou os baselines baseados em sinais
+isolados de BM25 e recuperação semântica. Porém, não demonstrou vantagem uniforme sobre o
+RRF nas métricas globais ou em coberturas fixas, e os riscos dos limiares gerenciais não se
+generalizaram. A contribuição empírica central é mostrar a distância entre ordenar casos por
+confiança, escolher um limiar e controlar risco em outra distribuição. O mecanismo é útil
+como sinal de ordenação, mas a versão avaliada não deve ser tratada como política de
+autorização pronta para produção.

@@ -20,13 +20,15 @@ O release confirma answer spans e relevância documental. O rótulo seguirá est
 
 1. Na avaliação de chunks, `y=1` quando o contexto contiver a região gold delimitada por offsets; caso contrário, `y=0`.
 2. Na avaliação documental, a presença do documento gold será uma proxy explicitamente identificada.
-3. Perguntas nativas não respondíveis terão `y=0` no universo dos candidatos oficiais, para o qual foram anotadas.
+3. Perguntas nativas não respondíveis terão `y=0` no universo dos 50 candidatos oficiais,
+   para o qual foram anotadas. O rótulo significa ausência de resposta nesse universo
+   documental, não impossibilidade universal de resposta.
 
 O rótulo nunca utilizará pontuações, ranks, concordância dos retrievers ou o tipo de cenário.
 
 ## Corpus e análise principal
 
-O experimento principal reranqueará os 50 candidatos oficiais por pergunta. Essa escolha preserva a validade dos casos não respondíveis. O corpus completo poderá ser usado em análise secundária, mas não receberá automaticamente rótulos negativos, pois pode conter evidência não anotada fora dos candidatos.
+O experimento principal reranqueará os 50 candidatos oficiais por pergunta. Essa escolha preserva a validade dos casos não respondíveis. O corpus completo poderá ser usado em análise secundária, mas não receberá automaticamente rótulos negativos, pois pode conter evidência não anotada fora dos candidatos. A definição e os tamanhos oficiais dos conjuntos seguem a [publicação do TechQA](https://aclanthology.org/2020.acl-main.117/).
 
 A análise principal deve refletir o resultado natural da recuperação: o contexto é positivo ou negativo conforme contenha a evidência anotada. Remoções artificiais e negativos construídos serão usados como testes de estresse separados. Isso reduz o risco de o modelo aprender artefatos do gerador de cenários.
 

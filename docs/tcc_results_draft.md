@@ -83,15 +83,18 @@ distribuição avaliada e não devem ser interpretadas como probabilidades unive
 O run final `20260721-024728_final-test-k5_68bd89db` foi executado com a especificação
 congelada, sem refit ou recalibração.
 
-No desenvolvimento oficial, a recuperação RRF cobriu o span em 65,6% das 160 perguntas
+No desenvolvimento oficial, empregado como holdout final local — e não como o teste cego
+original de 490 perguntas —, a recuperação RRF cobriu o span em 65,6% das 160 perguntas
 respondíveis em k=5, contra 62,5% do BM25 e 63,1% do semântico. O mecanismo de confiança
 obteve ROC-AUC 0,744, PR-AUC 0,604, Brier 0,195, ECE-10 0,082 e AURC 0,478 nas 310
 perguntas. As análises sem duplicatas exatas e sem flags de quase duplicata apresentaram
 ROC-AUC 0,742 e 0,738, respectivamente.
 
 Na política equilibrada congelada, cobertura foi 41,6%, risco 45,7%, precisão 0,543, recall
-0,667 e F1 0,598. Foram observadas 59 falsas autorizações — 47 perguntas nativamente não
-respondíveis e 12 misses — e 35 abstenções indevidas. A política conservadora, embora
+0,667 e F1 0,598. Foram observadas 59 falsas autorizações — 47 perguntas sem resposta
+anotada entre os 50 Technotes candidatos oficiais e 12 misses — e 35 abstenções indevidas.
+“Não respondível” é, portanto, uma propriedade relativa a esse universo documental, não
+impossibilidade universal de resposta. A política conservadora, embora
 selecionada internamente para risco ≤10%, apresentou risco final de 35,7% com cobertura de
 13,5%, evidenciando mudança de distribuição e ausência de garantia operacional.
 
@@ -102,3 +105,22 @@ das três métricas favoreceram a logística. Conclui-se que a hipótese recebeu
 a combinação melhora a identificação de positivos em relação aos sinais isolados, mas não
 demonstrou superioridade uniforme sobre RRF nem estabilidade suficiente dos riscos para uso
 direto como política de produção.
+
+### Comparação em coberturas fixas
+
+Uma análise pós-hoc das previsões congeladas comparou os quatro sinais nas coberturas de
+10%, 20%, 40%, 60%, 80% e 100%. Os riscos da logística foram 32,3%, 35,5%, 45,2%, 53,8%,
+60,1% e 66,1%; os do RRF foram 45,3%, 45,3%, 47,9%, 53,3%, 59,7% e 66,1%. A logística
+teve vantagem observada até 40%, porém os IC95% pareados das reduções contra RRF incluíram
+zero. Em 60% e 80%, o RRF foi ligeiramente melhor. Logo, a hipótese de menor risco em
+coberturas comparáveis recebe apoio parcial, não confirmação uniforme.
+
+### Contribuição empírica
+
+A contribuição não reside na novidade da regressão logística. O estudo demonstra, no mesmo
+protocolo, que combinar sinais melhora a ordenação frente aos sinais isolados, que parte do
+ganho já é capturada pelo retrieval híbrido e que desempenho discriminativo razoável não
+garante transferência dos limiares de decisão. O ponto conservador, selecionado internamente
+para risco de até 10%, atingiu 35,7% no holdout; nele, risco final observado de até 10% seria
+compatível com cobertura de apenas 2,3%. Assim, limiares de confiança devem ser tratados
+como políticas dependentes da distribuição, sujeitas a validação e monitoramento locais.

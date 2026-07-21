@@ -5,9 +5,10 @@ Repositório de pesquisa do TCC sobre decisão seletiva em sistemas RAG para sup
 ## Estado atual
 
 O TechQA foi auditado e preparado. BM25, recuperação semântica, RRF, regressão logística,
-calibração, robustez e a campanha final congelada foram concluídos. O teste final foi
-executado sem refit ou recalibração e o gate está novamente bloqueado. A hipótese recebeu
-apoio parcial; limitações e resultados inconclusivos estão reportados integralmente.
+calibração, robustez e a campanha final congelada foram concluídos. O desenvolvimento
+oficial foi usado como holdout final local — não como o teste cego original — sem refit ou
+recalibração, e o gate está novamente bloqueado. A hipótese recebeu apoio parcial;
+limitações e resultados inconclusivos estão reportados integralmente.
 
 ## Estrutura
 
@@ -79,6 +80,7 @@ O download é retomável e validado por tamanho e SHA-256. A extração padrão 
 - Confiança e robustez internas: `docs/confidence_results_internal.md`
 - Auditoria de negativos difíceis: `docs/hard_negative_audit.md`
 - Sensibilidade à prevalência: `docs/prevalence_sensitivity.md`
+- Risco em coberturas fixas: `docs/fixed_coverage_risk.md`
 - Plano congelado do teste: `docs/final_test_plan.md`
 - Resultados finais: `docs/final_results.md`
 - Registro de acesso ao holdout: `docs/test_access_log.md`
