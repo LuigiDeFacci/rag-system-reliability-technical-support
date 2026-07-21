@@ -53,6 +53,10 @@ bootstrap:
   paired: true
   replicates: 2000
   confidence_level: 0.95
+prevalence_sensitivity:
+  target_positive_rates: [0.20, 0.40, 0.60, 0.80]
+  method: analytic_class_reweighting
+  refit_or_recalibrate: false
 internal_selection:
   status: frozen_for_robustness_checks
   source_run_id: 20260721-021033_confidence-logreg_27fc4ef8
