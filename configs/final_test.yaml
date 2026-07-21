@@ -1,5 +1,5 @@
-status: authorized_once
-allow_test: true
+status: completed_locked
+allow_test: false
 requirements:
   protocol_frozen: true
   data_audit_complete: true
