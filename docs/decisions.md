@@ -35,6 +35,8 @@ Decisões são imutáveis por identificador. Alterações criam uma nova entrada
 | D029 | aceita | Executar bootstrap pareado com 2.000 reamostragens por `query_id`. | Preserva o pareamento dos métodos e evita tratar rankings do mesmo caso como amostras independentes. |
 | D030 | provisória | Manter o conjunto completo `core_v1` como candidato, sem afirmar benefício uniforme de todas as features. | Foi melhor em ROC-AUC e F1, mas o subconjunto semântico teve PR-AUC e AURC marginalmente melhores. |
 | D031 | aceita | Construir o teste de estresse de negativos difíceis a partir dos erros e rankings, separado da análise natural. | Oito dos dez falsos positivos equilibrados eram misses naturais com candidatos altamente plausíveis. |
+| D032 | aceita | Definir conflito técnico forte apenas para CVEs incompatíveis no mesmo produto; manter outras detecções como candidatas. | A amostra exploratória revelou ruído de timestamps, IDs de suporte e versões incidentais. |
+| D033 | aceita | Avaliar remoção artificial do gold somente como falsa autorização em prevalência zero. | ROC-AUC, PR-AUC e probabilidade calibrada não têm interpretação operacional nesse conjunto totalmente negativo. |
 
 ## Ambiguidades abertas
 

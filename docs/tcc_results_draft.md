@@ -55,3 +55,17 @@ recuperação — e nove falsos negativos. Na ablação, o conjunto completo lid
 F1; o subconjunto semântico foi marginalmente superior em PR-AUC e AURC. Portanto, os
 achados preliminares apoiam a comparação final, mas não autorizam aceitar a hipótese antes
 do protocolo congelado e do holdout.
+
+## Estresse preliminar com negativos difíceis
+
+Foram construídos 1.350 contextos internos após remover o documento gold e selecionar os
+cinco primeiros chunks não-gold de BM25, semântico e RRF. Entre os 90 contextos híbridos da
+seleção, a confiança média caiu de 0,488 no contexto natural para 0,340 no contexto sem o
+gold; a diferença pareada média foi −0,149 (IC95% −0,199 a −0,101). A confiança diminuiu em
+66,7% das perguntas.
+
+Mesmo com a queda média, o ponto equilibrado autorizou incorretamente 25,6% dos negativos
+difíceis (IC95% 16,7%–34,4%). As políticas conservadora e expansiva autorizaram 7,8% e
+31,1%, respectivamente. Como o conjunto foi artificialmente construído com 100% de
+negativos, esses valores medem falsa autorização sob estresse e não representam calibração,
+prevalência real ou risco de produção.

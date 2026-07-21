@@ -56,6 +56,8 @@ $env:PYTHONPATH = (Resolve-Path .\src).Path
 .\.venv\Scripts\python.exe -m rag_confidence.features.build --help
 .\.venv\Scripts\python.exe -m rag_confidence.models.train_internal --help
 .\.venv\Scripts\python.exe -m rag_confidence.evaluation.run_robustness --help
+.\.venv\Scripts\python.exe -m rag_confidence.scenarios.build_hard_negatives --help
+.\.venv\Scripts\python.exe -m rag_confidence.evaluation.evaluate_hard_negatives --help
 .\.venv\Scripts\python.exe -m rag_confidence.reporting.generate_internal_report --help
 .\.venv\Scripts\python.exe -m pytest
 .\.venv\Scripts\python.exe -m ruff check src tests
@@ -74,6 +76,7 @@ O download é retomável e validado por tamanho e SHA-256. A extração padrão 
 - Recuperação semântica: `docs/semantic_retrieval.md`
 - Resultados internos de retrieval: `docs/retrieval_results_internal.md`
 - Confiança e robustez internas: `docs/confidence_results_internal.md`
+- Auditoria de negativos difíceis: `docs/hard_negative_audit.md`
 - Registro de acesso ao holdout: `docs/test_access_log.md`
 - Diário cronológico: `docs/development_log.md`
 - Decisões metodológicas: `docs/decisions.md`

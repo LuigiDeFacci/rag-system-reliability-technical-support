@@ -53,3 +53,18 @@ e decisão decorrente neste diário ou no `experiment_registry.md`.
 6. Foram gerados quatro gráficos, tabelas de erros com hashes e o notebook
    `03_confidence_analysis.ipynb`. O notebook foi executado integralmente como verificação.
 7. O teste final permaneceu bloqueado durante todas essas etapas.
+
+## 2026-07-20 — negativos difíceis
+
+1. O gold foi removido dos rankings de 450 perguntas respondíveis, após a separação dos
+   splits. BM25, semântico e RRF produziram 1.350 contextos negativos auditáveis.
+2. A primeira heurística de conflito técnico mostrou ruído em uma amostra exploratória. A
+   classificação forte foi restringida a CVEs diferentes dentro do mesmo produto; os demais
+   casos permanecem explicitamente como candidatos.
+3. O artefato derivado foi regenerado após essa correção; o comando, os hashes e a razão da
+   mudança ficaram registrados. Nenhum dado original foi removido.
+4. O modelo e os limiares já selecionados foram aplicados aos 90 negativos híbridos de
+   `selection`. A execução inicial sem IC foi preservada e substituída por um run com 2.000
+   bootstraps agrupados por pergunta.
+5. A falsa autorização no ponto equilibrado foi 25,6% (IC95% 16,7%–34,4%). O resultado foi
+   documentado como estresse de prevalência zero, não como calibração ou risco operacional.

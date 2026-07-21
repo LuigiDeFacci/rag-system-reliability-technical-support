@@ -26,6 +26,7 @@ class RepositoryContractTest(unittest.TestCase):
             "docs/development_log.md",
             "docs/retrieval_results_internal.md",
             "docs/confidence_results_internal.md",
+            "docs/hard_negative_audit.md",
             "requirements-win-cuda.lock.txt",
         ]
         for relative_path in required:

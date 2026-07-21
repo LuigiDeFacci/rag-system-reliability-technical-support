@@ -25,6 +25,10 @@ gold. `final_test_used=false` nos três manifestos.
 | `20260721-020801_confidence-logreg_715c4e06` | substituído | comparação completa; critério expansivo não garantia cobertura maior que o equilibrado |
 | `20260721-021033_confidence-logreg_27fc4ef8` | selecionado internamente | k=5, logística bruta: ROC-AUC 0,864; PR-AUC 0,793; Brier 0,148; AURC 0,348 |
 | `20260721-021427_robustness-k5_1dacdb1b` | validado | bootstrap agrupado pareado com 2.000 réplicas e cinco ablações |
+| `hard_negatives_v1` | validado | 1.350 contextos não-gold em BM25, semântico e RRF; 38 perguntas e 87 contextos com conflito exato de CVE |
+| `20260721-023120_hard-stress-k5_4e69b1bc` | substituído | primeira avaliação de estresse; ainda sem intervalos de confiança |
+| `20260721-023156_hard-stress-k5_594f6518` | substituído | métricas completas, mas executado antes do commit que formalizou a implementação |
+| `20260721-023427_hard-stress-k5_594f6518` | validado | commit `6d4a298`; falsa autorização equilibrada 25,6% (IC95% 16,7%–34,4%) em 90 negativos híbridos |
 
 Os dois runs substituídos não foram apagados localmente. O run selecionado contém modelos,
 predições, coeficientes, bins de confiabilidade, configuração e hashes. Todos declaram

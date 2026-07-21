@@ -1,0 +1,24 @@
+{
+  "version": "hard_negatives_v1",
+  "scope": "internal_only",
+  "label_definition": "absence_of_annotated_gold_document",
+  "seed": 42,
+  "context_k": 5,
+  "rows": 1350,
+  "unique_queries": 450,
+  "methods": ["bm25", "semantic", "hybrid"],
+  "selection_hybrid": {
+    "rows": 90,
+    "hard_non_gold": 73,
+    "technical_conflict_candidate": 12,
+    "confirmed_cve_conflict": 5
+  },
+  "source_runs": {
+    "bm25": "20260721-015143_bm25-chunk_71a60532",
+    "semantic": "20260721-015232_semantic-chunk_2a14e360"
+  },
+  "scenarios_sha256": "7233a852bc519d2df30cbaa6f4d1862aaac062c713f7aa0a8da404b6d95751aa",
+  "unannotated_equivalent_evidence_possible": true,
+  "manual_conflict_review_required": true,
+  "final_test_used": false
+}
