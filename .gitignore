@@ -43,6 +43,7 @@ Thumbs.db
 *.npy
 *.safetensors
 *.joblib
+docs/docx_final_update_report.md
 
 # Local academic/course material with separate or unknown redistribution terms
 *.docx
