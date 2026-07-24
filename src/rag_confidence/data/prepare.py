@@ -1,4 +1,9 @@
-"""Create a canonical, leakage-aware TechQA dataset from immutable raw files."""
+"""Create canonical, leakage-aware TechQA tables from immutable raw files.
+
+Only official training questions are repartitioned. Development stays the local
+final holdout, while the official ``validation`` copy is used only for a
+structural smoke test. This distinction is recorded in the manifests.
+"""
 
 from __future__ import annotations
 
@@ -22,10 +27,12 @@ def load_json(path: Path) -> Any:
 
 
 def deduplicate_preserving_order(values: list[str]) -> list[str]:
+    """Remove repeated candidate IDs without changing first occurrence order."""
     return list(dict.fromkeys(str(value) for value in values))
 
 
 def assign_train_splits(rows: list[dict[str, Any]], seed: int) -> dict[str, str]:
+    """Assign duplicate-question groups to fit/calibration/selection splits."""
     group_rows: defaultdict[str, list[dict[str, Any]]] = defaultdict(list)
     for row in rows:
         group_rows[question_fingerprint(row)].append(row)

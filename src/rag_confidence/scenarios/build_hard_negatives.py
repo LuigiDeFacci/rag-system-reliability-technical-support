@@ -1,5 +1,8 @@
 """Build auditable non-gold top-ranked contexts for stress testing.
 
+The gold document is removed before selecting non-gold chunks. These contexts
+are internal stress tests and never replace the natural holdout distribution.
+
 The label means absence of the annotated gold evidence. It does not claim that every
 non-gold Technote is globally irrelevant or that unannotated equivalent evidence is absent.
 """

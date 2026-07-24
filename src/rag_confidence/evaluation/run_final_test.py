@@ -1,4 +1,8 @@
-"""Apply the fully frozen confidence protocol to the final holdout exactly once."""
+"""Apply the frozen confidence protocol to the local final holdout.
+
+This command verifies source manifests, applies the selected model and
+thresholds, and writes a new immutable run. It must not be used for selection.
+"""
 
 from __future__ import annotations
 
@@ -33,6 +37,7 @@ from rag_confidence.retrieval.run_bm25 import enforce_test_gate, git_commit
 def require_frozen_gate(
     gate_path: Path, spec_path: Path, *, allow_test: bool, repository_root: Path
 ) -> tuple[dict[str, Any], dict[str, Any]]:
+    # Opening the holdout is an explicit, auditable boundary in the workflow.
     enforce_test_gate(("final_test",), allow_test, gate_path)
     gate = yaml.safe_load(gate_path.read_text(encoding="utf-8"))
     spec = yaml.safe_load(spec_path.read_text(encoding="utf-8"))

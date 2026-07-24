@@ -1,4 +1,8 @@
-"""Exact semantic ranking helpers for the candidate-set experiment."""
+"""Exact semantic ranking helpers for the candidate-set experiment.
+
+Embeddings are normalized and compared by cosine similarity. Model revision and
+query prefix are recorded in retrieval manifests.
+"""
 
 from __future__ import annotations
 

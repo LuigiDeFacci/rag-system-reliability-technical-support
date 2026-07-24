@@ -1,4 +1,8 @@
-"""Reciprocal Rank Fusion over aligned chunk rankings."""
+"""Reciprocal Rank Fusion over aligned chunk rankings.
+
+RRF combines ordinal evidence without adding BM25 and cosine scores, whose
+scales are not directly comparable across questions.
+"""
 
 from __future__ import annotations
 

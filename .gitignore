@@ -37,6 +37,12 @@ results/runs/*
 .DS_Store
 Thumbs.db
 ~$*.docx
+*.pdf
+*.tar.gz
+*.parquet
+*.npy
+*.safetensors
+*.joblib
 
 # Local academic/course material with separate or unknown redistribution terms
 *.docx

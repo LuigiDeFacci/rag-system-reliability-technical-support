@@ -1,4 +1,8 @@
-"""Tokenizer-aware document chunking with source-character provenance."""
+"""Tokenizer-aware document chunking with source-character provenance.
+
+The same token budget and overlap are shared by lexical and semantic retrieval,
+so comparisons change scoring rather than the evidence presented to a method.
+"""
 
 from __future__ import annotations
 

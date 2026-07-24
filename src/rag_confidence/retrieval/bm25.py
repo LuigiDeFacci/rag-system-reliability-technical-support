@@ -1,4 +1,8 @@
-"""Small, transparent BM25 implementation for candidate-set reranking."""
+"""Small, transparent BM25 implementation for candidate-set reranking.
+
+Scores order candidates within a question; they are not probabilities and are
+normalized before entering cross-query feature models.
+"""
 
 from __future__ import annotations
 

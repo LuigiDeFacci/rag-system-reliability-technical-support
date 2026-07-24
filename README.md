@@ -67,6 +67,19 @@ $env:PYTHONPATH = (Resolve-Path .\src).Path
 .\.venv\Scripts\python.exe -m ruff check src tests
 ```
 
+Os primeiros dois comandos de dados auditam e preparam os arquivos locais. Os
+três comandos de recuperação constroem os rankings lexical, semântico e
+híbrido. Em seguida, os comandos de cenários e features produzem as entradas
+sem rótulo do gate; o treinamento interno ajusta e calibra o modelo sem abrir o
+holdout. Os comandos de relatório apenas leem artefatos existentes. O teste
+final é uma etapa separada e não deve ser executado para exploração.
+
+Para entender o motivo de cada etapa, consulte o
+[guia de leitura do código](docs/code_walkthrough.md). Para contribuir com
+comentários, testes ou documentação, siga o
+[guia técnico](docs/developer_guide.md). Os notebooks e suas fontes de dados
+estão descritos em [notebooks_guide.md](docs/notebooks_guide.md).
+
 O download é retomável e validado por tamanho e SHA-256. A extração padrão inclui apenas os arquivos necessários à análise principal; não expande as representações redundantes do corpus integral.
 
 ## Documentos principais
@@ -92,3 +105,13 @@ O download é retomável e validado por tamanho e SHA-256. A extração padrão 
 - Decisões metodológicas: `docs/decisions.md`
 - Registro de experimentos: `docs/experiment_registry.md`
 - Resultados para transcrição: `docs/tcc_results_draft.md`
+- Guia de publicação aberta: `docs/public_release.md`
+
+## Publicação e artigos futuros
+
+Este repositório não contém o corpus TechQA, embeddings, modelos serializados
+ou os PDFs da biblioteca de referências. O script de obtenção e os checksums
+permitem preparar os dados localmente quando os termos de uso forem atendidos.
+Antes de publicar, siga o [guia de release](docs/public_release.md) e execute
+os testes. Artigos futuros devem citar um commit ou tag estável e referenciar o
+`run_id` e os hashes dos artefatos utilizados.

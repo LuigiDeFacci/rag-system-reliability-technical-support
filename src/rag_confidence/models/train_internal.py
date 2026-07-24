@@ -1,4 +1,8 @@
-"""Train fixed logistic models, calibrate separately and evaluate internal selection."""
+"""Train and calibrate the confidence gate without opening the final holdout.
+
+The model uses ``fit``, calibration uses ``calibration`` and policy selection
+uses ``selection``. A manifest guard rejects final-test feature artifacts.
+"""
 
 from __future__ import annotations
 
@@ -35,6 +39,7 @@ from rag_confidence.retrieval.run_bm25 import git_commit
 def scenario_breakdown(
     labels: pd.DataFrame, probabilities: np.ndarray, threshold: float = 0.5
 ) -> dict[str, Any]:
+    """Summarize predictions by scenario for internal error analysis."""
     frame = labels.copy()
     frame["probability"] = probabilities
     frame["prediction"] = frame["probability"] >= threshold
@@ -64,6 +69,7 @@ def main() -> None:
     features_dir = args.features_dir.resolve()
     feature_manifest_path = features_dir / "manifest.json"
     feature_manifest = json.loads(feature_manifest_path.read_text(encoding="utf-8"))
+    # Training and threshold selection must remain independent of final_test.
     if feature_manifest["final_test_used"]:
         raise PermissionError("Internal training refuses final-test feature artifacts")
     features_path = features_dir / "features.parquet"

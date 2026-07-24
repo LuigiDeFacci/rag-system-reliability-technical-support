@@ -1,4 +1,8 @@
-"""Extract production-available retrieval features into a label-free table."""
+"""Extract production-available retrieval features into a label-free table.
+
+Gold documents, answer spans and scenario labels are excluded by explicit
+forbidden-column checks, so the no-leakage rule is executable.
+"""
 
 from __future__ import annotations
 
@@ -35,6 +39,7 @@ def score_distribution_features(
     document_ids: list[str],
     cutoff: int,
 ) -> dict[str, float]:
+    """Summarize one retriever's score distribution at a requested cutoff."""
     values = np.asarray(scores, dtype=np.float64)
     if len(values) < cutoff or len(values) < 2:
         raise ValueError("Ranking is shorter than the requested cutoff")
@@ -132,6 +137,8 @@ def main() -> None:
         name: json.loads((path / "manifest.json").read_text(encoding="utf-8"))
         for name, path in run_paths.items()
     }
+    # Features are created before the final gate; this guard prevents accidental
+    # reuse of a retrieval run that already touched the holdout.
     if any(manifest["final_test_used"] for manifest in run_manifests.values()):
         raise PermissionError("Feature extraction refuses final-test source runs")
 
@@ -196,6 +203,7 @@ def main() -> None:
         for column in features.columns
         if any(fragment in column.casefold() for fragment in FORBIDDEN_FEATURE_FRAGMENTS)
     ]
+    # Fail closed if a gold/label-like column reaches the production feature set.
     if forbidden:
         raise ValueError(f"Forbidden feature columns detected: {forbidden}")
 

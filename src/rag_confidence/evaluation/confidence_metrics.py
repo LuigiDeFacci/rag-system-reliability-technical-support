@@ -1,4 +1,8 @@
-"""Classification, calibration and selective-decision metrics."""
+"""Classification, calibration and selective-decision metrics.
+
+Selective risk is measured only among accepted examples. Calibration describes
+probabilities, whereas coverage-risk metrics describe authorization policies.
+"""
 
 from __future__ import annotations
 

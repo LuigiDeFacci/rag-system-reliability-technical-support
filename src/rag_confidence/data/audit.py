@@ -1,4 +1,10 @@
-"""Audit the locally extracted TechQA release without changing raw files."""
+"""Audit the locally extracted TechQA release without changing raw files.
+
+The audit is deliberately read-only. It checks the release boundary before
+retrieval code runs: hashes, schema, alignment, candidates, answer spans,
+class counts and cross-split duplication. Its JSON manifest documents inputs;
+it is not a model feature.
+"""
 
 from __future__ import annotations
 
@@ -14,6 +20,7 @@ from typing import Any
 
 
 def sha256_file(path: Path) -> str:
+    """Return the SHA-256 digest used to identify an input artifact."""
     digest = hashlib.sha256()
     with path.open("rb") as stream:
         for chunk in iter(lambda: stream.read(8 * 1024 * 1024), b""):
@@ -30,6 +37,7 @@ def question_text(row: dict[str, Any]) -> str:
 
 
 def question_fingerprint(row: dict[str, Any]) -> str:
+    """Create a stable grouping key from normalized title and question text."""
     return hashlib.sha256(normalized_text(question_text(row)).encode("utf-8")).hexdigest()
 
 
