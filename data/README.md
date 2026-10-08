@@ -8,5 +8,8 @@ Os dados do TechQA não estão presentes neste repositório. Antes de adicioná-
 4. nunca edite arquivos brutos em place;
 5. gere derivados em `data/interim/`, `data/processed/` e `data/manifests/`.
 
-Essas pastas são ignoradas pelo Git, exceto pelos marcadores que preservam a estrutura. Se a licença impedir redistribuição, o repositório público conterá apenas instruções de obtenção e verificação.
-
+Os dados brutos, intermediários e processados são ignorados pelo Git, exceto pelos
+marcadores que preservam a estrutura. Em `data/manifests/`, resumos JSON selecionados são
+versionados para documentar a auditoria e os resultados; os manifestos completos locais
+continuam fora do Git. O repositório público contém instruções de obtenção e verificação,
+sem cópia do corpus.

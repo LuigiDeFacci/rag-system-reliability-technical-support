@@ -2,9 +2,9 @@ cff-version: 1.2.0
 message: "If you use this research code, please cite it using this metadata."
 title: "Confiabilidade de sistemas RAG no suporte técnico"
 type: software
+license: Apache-2.0
+repository-code: "https://github.com/LuigiDeFacci/rag-system-reliability-technical-support"
 authors:
   - family-names: "De Facci"
     given-names: "Luigi"
 version: 0.1.0
-date-released: 2026-07-20
-

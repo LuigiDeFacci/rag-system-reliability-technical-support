@@ -1,6 +1,7 @@
 # Registro de experimentos
 
-A primeira execução interna foi realizada. Nenhum teste final foi aberto.
+A seleção interna e a campanha final congelada foram concluídas. O desenvolvimento oficial
+do TechQA foi usado como holdout final local; o gate foi fechado após a avaliação.
 
 ## Execuções
 

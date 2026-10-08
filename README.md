@@ -10,6 +10,12 @@ oficial foi usado como holdout final local — não como o teste cego original �
 recalibração, e o gate está novamente bloqueado. A hipótese recebeu apoio parcial;
 limitações e resultados inconclusivos estão reportados integralmente.
 
+Para leitura junto ao preprint, comece pelos [resultados finais](docs/final_results.md),
+pela [matriz entre perguntas e evidências](docs/research_questions_evidence_matrix.md)
+e pelos [artefatos tabulares e gráficos](figures/README.md). O ganho de risco contra RRF
+nas coberturas de até 40% foi descritivo: os intervalos de confiança pareados incluem zero.
+Os limiares escolhidos internamente também não mantiveram o risco pretendido no holdout.
+
 ## Estrutura
 
 - `configs/`: configurações versionadas de dados, recuperação e experimentos.
@@ -19,6 +25,10 @@ limitações e resultados inconclusivos estão reportados integralmente.
 - `src/rag_confidence/`: código da pesquisa organizado por etapa.
 - `tests/`: verificações de dados, vazamento e reprodutibilidade.
 - `results/runs/`: artefatos imutáveis por execução.
+
+Os resultados completos de execução e os dados de origem precisam ser gerados localmente;
+as tabelas, figuras e resumos versionados permitem conferir os números publicados sem
+redistribuir o corpus.
 
 ## Princípios científicos
 
@@ -41,6 +51,15 @@ da plataforma; wheels do PyTorch não são portáveis entre CPU, CUDA e sistemas
 
 Não adicione o TechQA ou o corpus de Technotes ao Git sem confirmar os termos de uso. Consulte `data/README.md` e `docs/data_audit.md`. Credenciais devem existir apenas em `.env`, que é ignorado pelo Git.
 
+## Licença e citação
+
+O código, a documentação, as tabelas e as figuras originais versionados neste repositório são
+distribuídos sob a [Apache License 2.0](LICENSE), com direitos autorais de 2026 de
+Luigi De Facci. Essa licença não se estende ao TechQA, aos Technotes, aos artigos
+de terceiros nem aos modelos externos; cada um mantém seus próprios termos.
+Para citar este repositório, use os metadados de [CITATION.cff](CITATION.cff) e
+identifique o commit ou a tag correspondente aos resultados consultados.
+
 ## Comandos atuais
 
 ```powershell
@@ -51,8 +70,11 @@ powershell -ExecutionPolicy Bypass -File scripts/extract_techqa_core.ps1
 $env:PYTHONPATH = (Resolve-Path .\src).Path
 .\.venv\Scripts\python.exe -m rag_confidence.data.audit
 .\.venv\Scripts\python.exe -m rag_confidence.data.prepare
-.\.venv\Scripts\python.exe -m rag_confidence.retrieval.run_bm25
 .\.venv\Scripts\python.exe -m rag_confidence.retrieval.build_chunks
+.\.venv\Scripts\python.exe -m rag_confidence.retrieval.build_embeddings
+.\.venv\Scripts\python.exe -m rag_confidence.retrieval.run_chunk_bm25
+.\.venv\Scripts\python.exe -m rag_confidence.retrieval.run_semantic
+.\.venv\Scripts\python.exe -m rag_confidence.retrieval.run_hybrid --help
 .\.venv\Scripts\python.exe -m rag_confidence.scenarios.build_natural --help
 .\.venv\Scripts\python.exe -m rag_confidence.features.build --help
 .\.venv\Scripts\python.exe -m rag_confidence.models.train_internal --help
@@ -67,9 +89,10 @@ $env:PYTHONPATH = (Resolve-Path .\src).Path
 .\.venv\Scripts\python.exe -m ruff check src tests
 ```
 
-Os primeiros dois comandos de dados auditam e preparam os arquivos locais. Os
-três comandos de recuperação constroem os rankings lexical, semântico e
-híbrido. Em seguida, os comandos de cenários e features produzem as entradas
+Os primeiros dois comandos de dados auditam e preparam os arquivos locais. A segmentação
+e os embeddings precedem os rankings lexical e semântico. A fusão RRF requer os caminhos
+dos dois runs gerados, informados por `--bm25-run` e `--semantic-run`; consulte o `--help`.
+Em seguida, os comandos de cenários e features produzem as entradas
 sem rótulo do gate; o treinamento interno ajusta e calibra o modelo sem abrir o
 holdout. Os comandos de relatório apenas leem artefatos existentes. O teste
 final é uma etapa separada e não deve ser executado para exploração.
@@ -113,5 +136,5 @@ Este repositório não contém o corpus TechQA, embeddings, modelos serializados
 ou os PDFs da biblioteca de referências. O script de obtenção e os checksums
 permitem preparar os dados localmente quando os termos de uso forem atendidos.
 Antes de publicar, siga o [guia de release](docs/public_release.md) e execute
-os testes. Artigos futuros devem citar um commit ou tag estável e referenciar o
-`run_id` e os hashes dos artefatos utilizados.
+o verificador `scripts/check_public_release.ps1`. Artigos futuros devem citar um commit
+ou tag estável e referenciar o `run_id` e os hashes dos artefatos utilizados.

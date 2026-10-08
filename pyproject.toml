@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Calibrated evidence-sufficiency estimation for technical-support RAG"
 readme = "README.md"
 requires-python = ">=3.10,<3.13"
-authors = [{ name = "Luigi de Facci" }]
+authors = [{ name = "Luigi De Facci" }]
 dependencies = [
   "numpy",
   "pandas",
