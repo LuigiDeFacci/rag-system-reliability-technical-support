@@ -1,66 +1,61 @@
-# Confiabilidade de evidência em sistemas RAG
+# Evidence Reliability in RAG Systems
 
-Repositório de pesquisa do TCC sobre decisão seletiva em sistemas RAG para suporte técnico. O objetivo é estimar, antes da geração, se o contexto recuperado contém evidência documental suficiente para autorizar uma resposta.
+Research repository for an MBA capstone project on selective prediction in RAG systems for technical support. The goal is to estimate, before generation, whether the retrieved context contains the annotated documentary evidence required to authorize an answer.
 
-## Estado atual
+**Author:** Luigi De Facci · [ORCID: 0009-0006-3250-2875](https://orcid.org/0009-0006-3250-2875)
 
-O TechQA foi auditado e preparado. BM25, recuperação semântica, RRF, regressão logística,
-calibração, robustez e a campanha final congelada foram concluídos. O desenvolvimento
-oficial foi usado como holdout final local — não como o teste cego original — sem refit ou
-recalibração, e o gate está novamente bloqueado. A hipótese recebeu apoio parcial;
-limitações e resultados inconclusivos estão reportados integralmente.
+**Related preprint:** *When Should RAG Abstain? Predicting Document Sufficiency Before Generation* · [DOI: 10.5281/zenodo.23267442](https://doi.org/10.5281/zenodo.23267442)
 
-Para leitura junto ao preprint, comece pelos [resultados finais](docs/final_results.md),
-pela [matriz entre perguntas e evidências](docs/research_questions_evidence_matrix.md)
-e pelos [artefatos tabulares e gráficos](figures/README.md). O ganho de risco contra RRF
-nas coberturas de até 40% foi descritivo: os intervalos de confiança pareados incluem zero.
-Os limiares escolhidos internamente também não mantiveram o risco pretendido no holdout.
+## Current status
 
-## Estrutura
+The TechQA audit and data preparation are complete. BM25, semantic retrieval, reciprocal rank fusion (RRF), logistic regression, calibration, robustness analyses, and the frozen final evaluation have been completed. The official development partition served as the local final holdout, rather than the original blind test set, without refitting or recalibration during that evaluation. The final-evaluation gate is closed again. The hypothesis received partial support; limitations and inconclusive findings are reported in full.
 
-- `configs/`: configurações versionadas de dados, recuperação e experimentos.
-- `data/`: instruções para dados locais; dados brutos e derivados não serão publicados sem licença compatível.
-- `docs/`: protocolo, auditoria, decisões e texto-base para o TCC.
-- `notebooks/`: auditoria e visualização; a implementação reutilizável ficará em `src/`.
-- `src/rag_confidence/`: código da pesquisa organizado por etapa.
-- `tests/`: verificações de dados, vazamento e reprodutibilidade.
-- `results/runs/`: artefatos imutáveis por execução.
+For reading alongside the preprint, start with the [final results](docs/final_results.md), the [research questions and evidence matrix](docs/research_questions_evidence_matrix.md), and the [tables and figures](figures/README.md). Risk reductions relative to RRF at coverage levels up to 40% were descriptive: paired confidence intervals include zero. Internally selected thresholds also failed to maintain their intended risk levels on the holdout.
 
-Os resultados completos de execução e os dados de origem precisam ser gerados localmente;
-as tabelas, figuras e resumos versionados permitem conferir os números publicados sem
-redistribuir o corpus.
+## Repository structure
 
-## Princípios científicos
+- `configs/`: versioned data, retrieval, and experiment settings.
+- `data/`: local data instructions; redistribution requires compatible terms.
+- `docs/`: protocol, audits, decisions, and capstone documentation.
+- `notebooks/`: audits and visualizations using reusable code in `src/`.
+- `src/rag_confidence/`: research code organized by pipeline stage.
+- `tests/`: checks for data integrity, leakage, and reproducibility.
+- `results/runs/`: immutable artifacts for each run.
 
-- O rótulo depende da presença da evidência anotada, nunca das pontuações usadas como variáveis.
-- Todas as variações da mesma pergunta permanecem no mesmo split.
-- Calibração, seleção de limiar e teste usam dados separados.
-- O teste final permanece bloqueado até o congelamento do protocolo.
-- Negativos artificiais são análises de estresse, não substitutos silenciosos da distribuição natural.
-- Resultados negativos ou equivalentes aos baselines serão reportados integralmente.
+Complete run outputs and source data must be obtained or generated locally. Versioned tables, figures, and summaries support checking the reported numbers without redistributing the corpus. Supporting research documents are currently primarily in Portuguese.
 
-## Ambiente
+## Research principles
 
-Use Python 3.10 a 3.12. No host atual, a pesquisa está isolada em `.venv` com Python 3.10.2 porque o PyTorch no Windows não suporta o Python 3.14 instalado como padrão. JupyterLab, testes e lint estão disponíveis na própria `.venv`.
+- Labels depend on annotated evidence, never on the scores used as predictive features.
+- Variants of the same question stay within the same internal split; train–holdout overlaps are documented and assessed separately.
+- Calibration, threshold selection, and final evaluation use separate partitions.
+- Final evaluation requires a frozen protocol and an explicitly authorized gate. Historical annotation access is recorded in the [holdout access log](docs/test_access_log.md).
+- Artificial negatives are stress tests, not substitutes for the natural data distribution.
+- Negative findings and results comparable to the baselines are reported in full.
 
-`requirements-win-cuda.lock.txt` reproduz o ambiente validado neste host (Windows,
-Python 3.10 e CUDA 12.8). Em outro sistema, use o `pyproject.toml` e gere um lock específico
-da plataforma; wheels do PyTorch não são portáveis entre CPU, CUDA e sistemas operacionais.
+## Environment
 
-## Dados
+The declared Python range is 3.10–3.12. The historical experiment used Python 3.10.2 on Windows with CUDA 12.8. Create a local virtual environment before installing dependencies.
 
-Não adicione o TechQA ou o corpus de Technotes ao Git sem confirmar os termos de uso. Consulte `data/README.md` e `docs/data_audit.md`. Credenciais devem existir apenas em `.env`, que é ignorado pelo Git.
+`requirements-win-cuda.lock.txt` records the historical environment. On another platform, use `pyproject.toml` and resolve compatible dependencies; PyTorch wheels depend on the operating system and CPU/CUDA configuration.
 
-## Licença e citação
+A subsequent partial reproduction with Python 3.14 reproduced data preparation, feature extraction from saved rankings, and model fitting to numerical precision. It did not rerun the complete embedding and retrieval pipeline or establish full Python 3.14 compatibility. A clean-environment, end-to-end reproduction remains unverified.
 
-O código, a documentação, as tabelas e as figuras originais versionados neste repositório são
-distribuídos sob a [Apache License 2.0](LICENSE), com direitos autorais de 2026 de
-Luigi De Facci. Essa licença não se estende ao TechQA, aos Technotes, aos artigos
-de terceiros nem aos modelos externos; cada um mantém seus próprios termos.
-Para citar este repositório, use os metadados de [CITATION.cff](CITATION.cff) e
-identifique o commit ou a tag correspondente aos resultados consultados.
+## Data
 
-## Comandos atuais
+Before adding TechQA or the Technote corpus to Git, check the applicable redistribution terms. See [data instructions](data/README.md) and the [data audit](docs/data_audit.md). Store credentials only in `.env`, which Git ignores.
+
+## License and citation
+
+The original code, documentation, tables, and figures versioned in this repository are distributed under the [Apache License 2.0](LICENSE), copyright 2026 Luigi De Facci. This license does not extend to TechQA, Technotes, third-party publications, or external models; each retains its own terms.
+
+For the accompanying study, cite:
+
+> De Facci, Luigi. *When Should RAG Abstain? Predicting Document Sufficiency Before Generation*. Zenodo preprint. https://doi.org/10.5281/zenodo.23267442
+
+This DOI identifies the preprint. When referring to the implementation, also identify the repository commit or tag corresponding to the results used. Machine-readable metadata is provided in [CITATION.cff](CITATION.cff).
+
+## Commands
 
 ```powershell
 powershell -ExecutionPolicy Bypass -Command "py -3.10 -m venv .venv"
@@ -89,52 +84,41 @@ $env:PYTHONPATH = (Resolve-Path .\src).Path
 .\.venv\Scripts\python.exe -m ruff check src tests
 ```
 
-Os primeiros dois comandos de dados auditam e preparam os arquivos locais. A segmentação
-e os embeddings precedem os rankings lexical e semântico. A fusão RRF requer os caminhos
-dos dois runs gerados, informados por `--bm25-run` e `--semantic-run`; consulte o `--help`.
-Em seguida, os comandos de cenários e features produzem as entradas
-sem rótulo do gate; o treinamento interno ajusta e calibra o modelo sem abrir o
-holdout. Os comandos de relatório apenas leem artefatos existentes. O teste
-final é uma etapa separada e não deve ser executado para exploração.
+The first two data commands audit and prepare local files. Chunking and embeddings precede lexical and semantic ranking. RRF requires the paths of both retrieval runs through `--bm25-run` and `--semantic-run`; consult `--help` for the required arguments.
 
-Para entender o motivo de cada etapa, consulte o
-[guia de leitura do código](docs/code_walkthrough.md). Para contribuir com
-comentários, testes ou documentação, siga o
-[guia técnico](docs/developer_guide.md). Os notebooks e suas fontes de dados
-estão descritos em [notebooks_guide.md](docs/notebooks_guide.md).
+Scenario construction assigns labels, while feature extraction builds predictive inputs without including those labels. Internal training fits and calibrates the model without opening the holdout. Reporting commands read existing artifacts. Final evaluation is a separate, controlled stage and should not be used for exploratory tuning.
 
-O download é retomável e validado por tamanho e SHA-256. A extração padrão inclui apenas os arquivos necessários à análise principal; não expande as representações redundantes do corpus integral.
+For the purpose of each stage, see the [code walkthrough](docs/code_walkthrough.md). For contributions to code comments, tests, or documentation, follow the [developer guide](docs/developer_guide.md). Notebooks and their data sources are described in the [notebook guide](docs/notebooks_guide.md).
 
-## Documentos principais
+The download supports resuming and validates file size and SHA-256. By default, extraction includes only the files needed for the main analysis, without expanding redundant representations of the full corpus.
 
-- Protocolo provisório: `docs/research_protocol.md`
-- Revisão das instruções recebidas: `docs/instruction_review.md`
-- Estado da auditoria: `docs/data_audit.md`
-- Questões de qualidade: `docs/data_quality_issues.md`
-- Preparação canônica: `docs/data_preparation.md`
-- Baseline lexical: `docs/bm25_baseline.md`
-- Recuperação semântica: `docs/semantic_retrieval.md`
-- Resultados internos de retrieval: `docs/retrieval_results_internal.md`
-- Confiança e robustez internas: `docs/confidence_results_internal.md`
-- Auditoria de negativos difíceis: `docs/hard_negative_audit.md`
-- Sensibilidade à prevalência: `docs/prevalence_sensitivity.md`
-- Risco em coberturas fixas: `docs/fixed_coverage_risk.md`
-- Plano congelado do teste: `docs/final_test_plan.md`
-- Resultados finais: `docs/final_results.md`
-- Matriz de perguntas e evidências: `docs/research_questions_evidence_matrix.md`
-- Checklist dos capítulos 8–10: `docs/chapters_8_10_replacement_checklist.md`
-- Registro de acesso ao holdout: `docs/test_access_log.md`
-- Diário cronológico: `docs/development_log.md`
-- Decisões metodológicas: `docs/decisions.md`
-- Registro de experimentos: `docs/experiment_registry.md`
-- Resultados para transcrição: `docs/tcc_results_draft.md`
-- Guia de publicação aberta: `docs/public_release.md`
+## Key documents
 
-## Publicação e artigos futuros
+- Research protocol: `docs/research_protocol.md`
+- Review of project instructions: `docs/instruction_review.md`
+- Data audit: `docs/data_audit.md`
+- Data-quality issues: `docs/data_quality_issues.md`
+- Canonical data preparation: `docs/data_preparation.md`
+- Lexical baseline: `docs/bm25_baseline.md`
+- Semantic retrieval: `docs/semantic_retrieval.md`
+- Internal retrieval results: `docs/retrieval_results_internal.md`
+- Internal confidence and robustness: `docs/confidence_results_internal.md`
+- Hard-negative audit: `docs/hard_negative_audit.md`
+- Prevalence sensitivity: `docs/prevalence_sensitivity.md`
+- Risk at fixed coverage: `docs/fixed_coverage_risk.md`
+- Frozen final-evaluation plan: `docs/final_test_plan.md`
+- Final results: `docs/final_results.md`
+- Research questions and evidence matrix: `docs/research_questions_evidence_matrix.md`
+- Chapters 8–10 checklist: `docs/chapters_8_10_replacement_checklist.md`
+- Holdout access log: `docs/test_access_log.md`
+- Development log: `docs/development_log.md`
+- Methodological decisions: `docs/decisions.md`
+- Experiment registry: `docs/experiment_registry.md`
+- Results for manuscript preparation: `docs/tcc_results_draft.md`
+- Public-release guide: `docs/public_release.md`
 
-Este repositório não contém o corpus TechQA, embeddings, modelos serializados
-ou os PDFs da biblioteca de referências. O script de obtenção e os checksums
-permitem preparar os dados localmente quando os termos de uso forem atendidos.
-Antes de publicar, siga o [guia de release](docs/public_release.md) e execute
-o verificador `scripts/check_public_release.ps1`. Artigos futuros devem citar um commit
-ou tag estável e referenciar o `run_id` e os hashes dos artefatos utilizados.
+## Releases and future publications
+
+The public repository does not distribute the TechQA corpus, embeddings, serialized models, or reference-library PDFs. The download script and checksums support local data preparation under the applicable terms.
+
+Before publishing a release, follow the [release guide](docs/public_release.md) and run `scripts/check_public_release.ps1`. Future publications should cite a stable commit or tag and identify the `run_id` and hashes of the artifacts used.

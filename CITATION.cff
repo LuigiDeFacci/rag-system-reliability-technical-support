@@ -7,4 +7,14 @@ repository-code: "https://github.com/LuigiDeFacci/rag-system-reliability-technic
 authors:
   - family-names: "De Facci"
     given-names: "Luigi"
+    orcid: "https://orcid.org/0009-0006-3250-2875"
 version: 0.1.0
+preferred-citation:
+  type: article
+  title: "When Should RAG Abstain? Predicting Document Sufficiency Before Generation"
+  authors:
+    - family-names: "De Facci"
+      given-names: "Luigi"
+      orcid: "https://orcid.org/0009-0006-3250-2875"
+  doi: "10.5281/zenodo.23267442"
+  url: "https://doi.org/10.5281/zenodo.23267442"
